@@ -129,7 +129,7 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
 
   const handleOrderSubmit = (e) => {
     e.preventDefault();
-    if (!formData.topic || !formData.deadline || !formData.budget) {
+    if (!formData.topic || !formData.deadline) {
       alert('Please fill out all required fields.');
       return;
     }
@@ -144,7 +144,6 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
       `📚 *Subject:* ${formData.subject}\n` +
       `📝 *Topic/Title:* ${formData.topic}\n` +
       `⏱ *Deadline:* ${formData.deadline}\n` +
-      `💰 *Estimated Budget:* ₹${formData.budget}\n` +
       `🎓 *Target Grade:* ${formData.grade}\n` +
       `📎 *Attached Files:* ${attachedFilesText}\n` +
       `📋 *Instructions:* ${formData.instructions || 'None'}\n\n` +
@@ -173,7 +172,7 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
     setActiveFaq(activeFaq === index ? null : index);
   };
 
-  if (serviceKey === 'assignment') {
+  if (false && serviceKey === 'assignment') {
     return (
       <div className="service-page assignment-special-page" style={{ backgroundColor: '#ffffff', color: '#1e293b', fontFamily: 'var(--font-body)' }}>
         
@@ -347,109 +346,177 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
                 </div>
 
                 {/* Right pane */}
-                <div style={{ padding: '48px', display: 'flex', flexDirection: 'column', justifyContent: 'center', background: '#fafbfc', position: 'relative' }}>
+                <div style={{ padding: '36px', display: 'flex', flexDirection: 'column', justifyContent: 'center', background: '#ffffff', position: 'relative' }}>
                   
-                  {/* Floating animated Envelope */}
-                  <div style={{ position: 'absolute', top: '16px', right: '16px', opacity: '0.8' }} className="envelope-svg">
-                    <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect x="15" y="30" width="70" height="50" rx="6" fill="#fed7aa" stroke="#ea580c" strokeWidth="3" />
-                      <path d="M15 32 L50 60 L85 32" stroke="#ea580c" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                      <g className="envelope-paper">
-                        <rect x="25" y="15" width="50" height="35" rx="3" fill="#ffffff" stroke="#cbd5e1" strokeWidth="2" />
-                        <line x1="32" y1="23" x2="68" y2="23" stroke="#cbd5e1" strokeWidth="2" strokeLinecap="round" />
-                        <line x1="32" y1="29" x2="60" y2="29" stroke="#cbd5e1" strokeWidth="2" strokeLinecap="round" />
-                        <line x1="32" y1="35" x2="52" y2="35" stroke="#cbd5e1" strokeWidth="2" strokeLinecap="round" />
-                      </g>
-                    </svg>
+                  {/* Top badge */}
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#f5f3ff', border: '1px solid #ddd6fe', color: '#6d28d9', padding: '5px 14px', borderRadius: '100px', fontSize: '11px', fontWeight: '750', marginBottom: '16px', width: 'fit-content' }}>
+                    <span style={{ fontSize: '12px' }}>🎓</span> PhD Experts. Real Help. Fast.
                   </div>
 
-                  <form onSubmit={handleTextMeNow} style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '100%', maxWidth: '380px', margin: '0 auto', textAlign: 'left' }}>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                      <label style={{ fontSize: '11px', fontWeight: '800', color: '#64748b', letterSpacing: '0.5px' }}>YOUR WHATSAPP NUMBER</label>
-                      
-                      <div className="premium-tel-container">
+                  {/* Title & Graphic Header */}
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: '16px', alignItems: 'center', marginBottom: '24px' }}>
+                    <div>
+                      <h3 style={{ fontSize: '24px', fontWeight: '900', color: '#09090b', marginBottom: '6px', lineHeight: '1.25', letterSpacing: '-0.8px', fontFamily: 'var(--font-headings)' }}>
+                        Get Your <br />
+                        <span style={{ background: 'linear-gradient(90deg, #ec4899, #8b5cf6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{config.title} Quote</span>
+                      </h3>
+                      <p style={{ fontSize: '13px', color: '#71717a', margin: 0, fontWeight: '500', lineHeight: '1.4' }}>
+                        Direct <span style={{ color: '#22c55e', fontWeight: '700' }}>WhatsApp</span> match with PhD tutors
+                      </p>
+                    </div>
+                    <div style={{ position: 'relative', width: '64px', height: '64px' }}>
+                      <img 
+                        src="/checklist_3d.jpg" 
+                        alt="Submission Checklist" 
+                        style={{ width: '100%', height: '100%', objectFit: 'contain' }} 
+                      />
+                      {/* WhatsApp bubble overlay */}
+                      <div style={{ position: 'absolute', bottom: '2px', left: '-2px', background: '#22c55e', borderRadius: '50%', width: '18px', height: '18px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 2px 8px rgba(34,197,94,0.35)' }}>
+                        <svg width="9" height="9" viewBox="0 0 24 24" fill="#ffffff">
+                          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.197 1.448 4.969 1.449 5.375 0 9.747-4.321 9.75-9.63 0-2.573-1.002-4.991-2.822-6.813C16.726 2.339 14.316 1.336 11.75 1.336 6.372 1.336 2 5.659 1.997 10.97c0 1.838.487 3.593 1.411 5.163l-1.077 3.93 4.07-1.066c.265.144.53.28.796.406v-.004z" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  <form onSubmit={handleOrderSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                    
+                    {/* Select Subject */}
+                    <div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                        <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#eff6ff', color: '#2563eb', fontSize: '13px' }}>📖</span>
+                        <label className="shadcn-label" style={{ margin: 0, fontWeight: '700', fontSize: '13.5px' }}>Select Subject</label>
+                      </div>
+                      <div style={{ position: 'relative' }}>
+                        <span style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '22px', height: '22px', borderRadius: '4px', background: '#e0f2fe', color: '#0284c7', fontSize: '12px', fontWeight: '800', pointerEvents: 'none' }}>
+                          √x
+                        </span>
                         <select 
-                          value={phonePrefix} 
-                          onChange={(e) => setPhonePrefix(e.target.value)}
-                          className="premium-tel-select"
+                          value={formData.subject}
+                          onChange={(e) => setFormData({...formData, subject: e.target.value})}
+                          className="shadcn-input shadcn-select"
+                          style={{ paddingLeft: '44px', border: '1px solid #e4e4e7', background: '#ffffff', borderRadius: '8px' }}
                         >
-                          {countryCodes.map((c, idx) => (
-                            <option key={idx} value={c.code}>{c.flag} {c.code}</option>
-                          ))}
+                          {subjectsList.map((sub, idx) => <option key={idx} value={sub}>{sub}</option>)}
                         </select>
-                        <input 
-                          type="tel" 
-                          placeholder="WhatsApp Number Only"
-                          value={whatsAppNum}
-                          onChange={(e) => setWhatsAppNum(e.target.value)}
-                          required
-                          className="premium-tel-input"
-                        />
                       </div>
                     </div>
 
+                    {/* Topic / Guidelines */}
+                    <div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                        <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#ecfdf5', color: '#059669', fontSize: '13px' }}>📝</span>
+                        <label className="shadcn-label" style={{ margin: 0, fontWeight: '700', fontSize: '13.5px' }}>Topic / Guidelines</label>
+                      </div>
+                      <div style={{ position: 'relative' }}>
+                        <input 
+                          type="text" 
+                          placeholder="e.g. Linear regression analysis worksheet"
+                          value={formData.topic}
+                          onChange={(e) => setFormData({...formData, topic: e.target.value})}
+                          required
+                          className="shadcn-input"
+                          style={{ paddingLeft: '14px', paddingRight: '40px', border: '1px solid #e4e4e7', borderRadius: '8px' }}
+                        />
+                        <span style={{ position: 'absolute', right: '14px', top: '50%', transform: 'translateY(-50%)', fontSize: '14px', color: '#94a3b8', pointerEvents: 'none' }}>📄</span>
+                      </div>
+                    </div>
+
+                    {/* Deadline */}
+                    <div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                        <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#fff5f5', color: '#e11d48', fontSize: '13px' }}>📅</span>
+                        <label className="shadcn-label" style={{ margin: 0, fontWeight: '700', fontSize: '13.5px' }}>Deadline</label>
+                      </div>
+                      <div style={{ position: 'relative' }}>
+                        <input 
+                          type="date"
+                          value={formData.deadline}
+                          onChange={(e) => setFormData({...formData, deadline: e.target.value})}
+                          required
+                          className="shadcn-input"
+                          style={{ paddingLeft: '14px', paddingRight: '40px', border: '1px solid #e4e4e7', borderRadius: '8px' }}
+                        />
+                        <span style={{ position: 'absolute', right: '14px', top: '50%', transform: 'translateY(-50%)', fontSize: '14px', color: '#e11d48', pointerEvents: 'none' }}>📅</span>
+                      </div>
+                    </div>
+
+                    {/* Specific Instructions */}
+                    <div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                        <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#eff6ff', color: '#2563eb', fontSize: '13px' }}>ℹ️</span>
+                        <label className="shadcn-label" style={{ margin: 0, fontWeight: '700', fontSize: '13.5px' }}>Specific Instructions</label>
+                      </div>
+                      <textarea 
+                        rows="2" 
+                        placeholder="Describe specific questions or guidelines..."
+                        value={formData.instructions}
+                        onChange={(e) => setFormData({...formData, instructions: e.target.value})}
+                        className="shadcn-textarea"
+                        style={{ resize: 'vertical', minHeight: '60px', border: '1px solid #e4e4e7', borderRadius: '8px' }}
+                      />
+                    </div>
+
+                    {/* Trust Badges */}
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '6px', background: '#fafafa', padding: '12px 6px', borderRadius: '12px', border: '1px solid #f3f3f3', marginTop: '4px' }}>
+                      <div style={{ textAlign: 'center' }}>
+                        <div style={{ fontSize: '10px', fontWeight: '800', color: '#09090b', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '3px' }}>
+                          <span style={{ color: '#3b82f6', fontSize: '11px' }}>🛡️</span> Secure
+                        </div>
+                        <span style={{ fontSize: '8px', color: '#71717a', fontWeight: '600', display: 'block', marginTop: '2px' }}>Your data is safe</span>
+                      </div>
+                      <div style={{ textAlign: 'center', borderLeft: '1px solid #e4e4e7' }}>
+                        <div style={{ fontSize: '10px', fontWeight: '800', color: '#09090b', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '3px' }}>
+                          <span style={{ color: '#ea580c', fontSize: '11px' }}>⚡</span> Quick
+                        </div>
+                        <span style={{ fontSize: '8px', color: '#71717a', fontWeight: '600', display: 'block', marginTop: '2px' }}>Replies fast</span>
+                      </div>
+                      <div style={{ textAlign: 'center', borderLeft: '1px solid #e4e4e7' }}>
+                        <div style={{ fontSize: '10px', fontWeight: '800', color: '#09090b', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '3px' }}>
+                          <span style={{ color: '#8b5cf6', fontSize: '11px' }}>👤</span> Tutors
+                        </div>
+                        <span style={{ fontSize: '8px', color: '#71717a', fontWeight: '600', display: 'block', marginTop: '2px' }}>PhD experts</span>
+                      </div>
+                    </div>
+
+                    {/* Submit button */}
                     <button 
                       type="submit" 
-                      className="btn" 
+                      disabled={isSubmitting}
                       style={{ 
                         width: '100%', 
-                        padding: '14px 0', 
-                        fontSize: '15px', 
-                        fontWeight: '800', 
-                        borderRadius: '8px', 
-                        backgroundColor: '#22c55e', 
+                        height: '48px',
+                        borderRadius: '100px', 
+                        backgroundColor: isSubmitting ? '#4b5563' : '#22c55e', 
                         color: 'white',
                         border: 'none',
-                        boxShadow: '0 6px 20px rgba(34, 197, 94, 0.25)',
-                        cursor: 'pointer',
+                        boxShadow: isSubmitting ? 'none' : '0 6px 20px rgba(34, 197, 94, 0.25)',
+                        cursor: isSubmitting ? 'not-allowed' : 'pointer',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        gap: '8px'
+                        gap: '8px',
+                        fontWeight: '800',
+                        fontSize: '14.5px',
+                        transition: 'all 0.2s ease',
+                        marginTop: '8px',
+                        position: 'relative',
+                        padding: '0 24px'
                       }}
+                      className="pulse-animation"
                     >
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.197 1.448 4.969 1.449 5.375 0 9.747-4.321 9.75-9.63 0-2.573-1.002-4.991-2.822-6.813C16.726 2.339 14.316 1.336 11.75 1.336 6.372 1.336 2 5.659 1.997 10.97c0 1.838.487 3.593 1.411 5.163l-1.077 3.93 4.07-1.066c.265.144.53.28.796.406v-.004z" />
                       </svg>
-                      Text Me Now
+                      <span style={{ flex: 1, textAlign: 'center' }}>Get Free Quote on WhatsApp</span>
+                      <span style={{ width: '22px', height: '22px', borderRadius: '50%', background: '#ffffff', color: '#22c55e', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', fontWeight: '900', flexShrink: 0 }}>→</span>
                     </button>
 
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '6px 0', color: '#94a3b8', fontSize: '11px', fontWeight: '800' }}>
-                      <span style={{ borderBottom: '1px solid #e2e8f0', flex: 1 }}></span>
-                      <span style={{ padding: '0 8px', textTransform: 'uppercase' }}>or</span>
-                      <span style={{ borderBottom: '1px solid #e2e8f0', flex: 1 }}></span>
+                    {/* Spam disclaimer footer */}
+                    <div style={{ fontSize: '11px', color: '#64748b', fontWeight: '600', marginTop: '6px', textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>
+                      🔒 No Spam • No Calls • Only WhatsApp
                     </div>
 
-                    <button 
-                      type="button"
-                      onClick={() => window.open('https://wa.me/919429379139?text=Hi%20A%20Grade%20Tutor%2C%20I%20need%20academic%20assistance.', '_blank')}
-                      className="btn"
-                      style={{ 
-                        width: '100%', 
-                        padding: '12px 0', 
-                        fontSize: '13px', 
-                        fontWeight: '700', 
-                        borderRadius: '8px', 
-                        backgroundColor: '#fff7ed', 
-                        color: '#ea580c',
-                        border: '1.5px dashed #fed7aa',
-                        cursor: 'pointer',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        gap: '6px'
-                      }}
-                    >
-                      📋 Get Homework Help →
-                    </button>
-
-                    {/* 2x2 badges grid */}
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '10px 16px', marginTop: '24px', fontSize: '12px', color: '#475569', fontWeight: '600' }}>
-                      <span>⚡ Instant reply</span>
-                      <span>🔒 100% private</span>
-                      <span>🎓 Top tutors</span>
-                      <span>📚 All subjects</span>
-                    </div>
                   </form>
                 </div>
 
@@ -1180,7 +1247,7 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
     <div className="service-page">
       {/* Hero Section with Quick Form */}
       <section className="hero-section" style={{ padding: '60px 0', background: 'radial-gradient(circle at 90% 10%, rgba(99, 102, 241, 0.06) 0%, transparent 65%)' }}>
-        <div className="container grid-cols-2" style={{ alignItems: 'center' }}>
+        <div className="container grid-cols-2" style={{ alignItems: 'flex-start', gap: '48px', paddingTop: '24px' }}>
           
           {/* Left Hero Text Column */}
           <div>
@@ -1213,126 +1280,188 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
             </div>
           </div>
 
-          {/* Right Hero Form Column */}
           <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <div className="glass-card" style={{ width: '100%', maxWidth: '440px', padding: '36px', border: '1.5px solid var(--border-color)', borderRadius: '16px', boxShadow: 'var(--shadow-xl)', background: '#ffffff' }}>
-              <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-                <h3 style={{ fontSize: '20px', fontWeight: '800', color: 'var(--primary)', marginBottom: '4px' }}>Get Your {config.title} Quote</h3>
-                <p style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>Direct WhatsApp match with PhD tutors</p>
+            <div className="shadcn-card" style={{ 
+              width: '100%', 
+              maxWidth: '480px', 
+              padding: '32px', 
+              border: '1px solid #e4e4e7', 
+              borderRadius: '24px', 
+              background: '#ffffff',
+              boxShadow: '0 20px 40px -15px rgba(99, 102, 241, 0.12), 0 1px 3px rgba(0, 0, 0, 0.02)',
+              position: 'relative',
+              overflow: 'hidden'
+            }}>
+              
+              {/* Top badge */}
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#f5f3ff', border: '1px solid #ddd6fe', color: '#6d28d9', padding: '5px 14px', borderRadius: '100px', fontSize: '11px', fontWeight: '750', marginBottom: '16px' }}>
+                <span style={{ fontSize: '12px' }}>🎓</span> PhD Experts. Real Help. Fast.
+              </div>
+
+              {/* Title & Graphic Header */}
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: '16px', alignItems: 'center', marginBottom: '24px' }}>
+                <div>
+                  <h3 style={{ fontSize: '26px', fontWeight: '900', color: '#09090b', marginBottom: '6px', lineHeight: '1.25', letterSpacing: '-0.8px', fontFamily: 'var(--font-headings)' }}>
+                    Get Your <br />
+                    <span style={{ background: 'linear-gradient(90deg, #ec4899, #8b5cf6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{config.title} Quote</span>
+                  </h3>
+                  <p style={{ fontSize: '13px', color: '#71717a', margin: 0, fontWeight: '500', lineHeight: '1.4' }}>
+                    Direct <span style={{ color: '#22c55e', fontWeight: '700' }}>WhatsApp</span> match with PhD tutors
+                  </p>
+                </div>
+                <div style={{ position: 'relative', width: '72px', height: '72px' }}>
+                  <img 
+                    src="/checklist_3d.jpg" 
+                    alt="Submission Checklist" 
+                    style={{ width: '100%', height: '100%', objectFit: 'contain' }} 
+                  />
+                  {/* WhatsApp bubble overlay */}
+                  <div style={{ position: 'absolute', bottom: '2px', left: '-2px', background: '#22c55e', borderRadius: '50%', width: '20px', height: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 2px 8px rgba(34,197,94,0.35)' }}>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="#ffffff">
+                      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.197 1.448 4.969 1.449 5.375 0 9.747-4.321 9.75-9.63 0-2.573-1.002-4.991-2.822-6.813C16.726 2.339 14.316 1.336 11.75 1.336 6.372 1.336 2 5.659 1.997 10.97c0 1.838.487 3.593 1.411 5.163l-1.077 3.93 4.07-1.066c.265.144.53.28.796.406v-.004z" />
+                    </svg>
+                  </div>
+                </div>
               </div>
 
               <form onSubmit={handleOrderSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                  <label style={{ fontSize: '13px', color: '#475569', fontWeight: '700', display: 'block' }}>Select Subject</label>
-                  <select 
-                    value={formData.subject}
-                    onChange={(e) => setFormData({...formData, subject: e.target.value})}
-                    className="creative-input"
-                    style={{
-                      padding: '10px 14px',
-                      appearance: 'none',
-                      backgroundImage: `url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23334155' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")`,
-                      backgroundRepeat: 'no-repeat',
-                      backgroundPosition: 'right 14px center',
-                      backgroundSize: '14px',
-                      paddingRight: '36px'
-                    }}
-                  >
-                    {subjectsList.map((sub, idx) => <option key={idx} value={sub}>{sub}</option>)}
-                  </select>
+                {/* Select Subject */}
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                    <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#eff6ff', color: '#2563eb', fontSize: '13px' }}>📖</span>
+                    <label className="shadcn-label" style={{ margin: 0, fontWeight: '700', fontSize: '13.5px' }}>Select Subject</label>
+                  </div>
+                  <div style={{ position: 'relative' }}>
+                    <span style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '22px', height: '22px', borderRadius: '4px', background: '#e0f2fe', color: '#0284c7', fontSize: '12px', fontWeight: '800', pointerEvents: 'none' }}>
+                      √x
+                    </span>
+                    <select 
+                      value={formData.subject}
+                      onChange={(e) => setFormData({...formData, subject: e.target.value})}
+                      className="shadcn-input shadcn-select"
+                      style={{ paddingLeft: '44px', border: '1px solid #e4e4e7', background: '#ffffff', borderRadius: '8px' }}
+                    >
+                      {subjectsList.map((sub, idx) => <option key={idx} value={sub}>{sub}</option>)}
+                    </select>
+                  </div>
                 </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                  <label style={{ fontSize: '13px', color: '#475569', fontWeight: '700', display: 'block' }}>Topic / Guidelines</label>
-                  <input 
-                    type="text" 
-                    placeholder="e.g. Linear regression analysis worksheet"
-                    value={formData.topic}
-                    onChange={(e) => setFormData({...formData, topic: e.target.value})}
-                    required
-                    className="creative-input"
-                    style={{ padding: '10px 14px' }}
-                  />
+                {/* Topic / Guidelines */}
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                    <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#ecfdf5', color: '#059669', fontSize: '13px' }}>📝</span>
+                    <label className="shadcn-label" style={{ margin: 0, fontWeight: '700', fontSize: '13.5px' }}>Topic / Guidelines</label>
+                  </div>
+                  <div style={{ position: 'relative' }}>
+                    <input 
+                      type="text" 
+                      placeholder="e.g. Linear regression analysis worksheet"
+                      value={formData.topic}
+                      onChange={(e) => setFormData({...formData, topic: e.target.value})}
+                      required
+                      className="shadcn-input"
+                      style={{ paddingLeft: '14px', paddingRight: '40px', border: '1px solid #e4e4e7', borderRadius: '8px' }}
+                    />
+                    <span style={{ position: 'absolute', right: '14px', top: '50%', transform: 'translateY(-50%)', fontSize: '14px', color: '#94a3b8', pointerEvents: 'none' }}>📄</span>
+                  </div>
                 </div>
 
-                <div className="grid-cols-2" style={{ gap: '14px' }}>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                    <label style={{ fontSize: '13px', color: '#475569', fontWeight: '700', display: 'block' }}>Deadline</label>
+                {/* Deadline */}
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                    <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#fff5f5', color: '#e11d48', fontSize: '13px' }}>📅</span>
+                    <label className="shadcn-label" style={{ margin: 0, fontWeight: '700', fontSize: '13.5px' }}>Deadline</label>
+                  </div>
+                  <div style={{ position: 'relative' }}>
                     <input 
                       type="date"
                       value={formData.deadline}
                       onChange={(e) => setFormData({...formData, deadline: e.target.value})}
                       required
-                      className="creative-input"
-                      style={{ padding: '10px 14px' }}
+                      className="shadcn-input"
+                      style={{ paddingLeft: '14px', paddingRight: '40px', border: '1px solid #e4e4e7', borderRadius: '8px' }}
                     />
-                  </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                    <label style={{ fontSize: '13px', color: '#475569', fontWeight: '700', display: 'block' }}>Budget Limit (₹)</label>
-                    <input 
-                      type="number"
-                      placeholder="e.g. 1500"
-                      value={formData.budget}
-                      onChange={(e) => setFormData({...formData, budget: e.target.value})}
-                      required
-                      className="creative-input"
-                      style={{ padding: '10px 14px' }}
-                    />
+                    <span style={{ position: 'absolute', right: '14px', top: '50%', transform: 'translateY(-50%)', fontSize: '14px', color: '#e11d48', pointerEvents: 'none' }}>📅</span>
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                  <label style={{ fontSize: '13px', color: '#475569', fontWeight: '700', display: 'block' }}>Specific Instructions</label>
+                {/* Specific Instructions */}
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                    <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#eff6ff', color: '#2563eb', fontSize: '13px' }}>ℹ️</span>
+                    <label className="shadcn-label" style={{ margin: 0, fontWeight: '700', fontSize: '13.5px' }}>Specific Instructions</label>
+                  </div>
                   <textarea 
-                    rows="2"
+                    rows="2" 
                     placeholder="Describe specific questions or guidelines..."
                     value={formData.instructions}
                     onChange={(e) => setFormData({...formData, instructions: e.target.value})}
-                    className="creative-input"
-                    style={{ padding: '10px 14px', resize: 'vertical', minHeight: '60px' }}
+                    className="shadcn-textarea"
+                    style={{ resize: 'vertical', minHeight: '60px', border: '1px solid #e4e4e7', borderRadius: '8px' }}
                   />
                 </div>
 
-                 <button 
+                {/* Trust Badges */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '6px', background: '#fafafa', padding: '12px 6px', borderRadius: '12px', border: '1px solid #f3f3f3', marginTop: '4px' }}>
+                  <div style={{ textAlign: 'center' }}>
+                    <div style={{ fontSize: '10px', fontWeight: '800', color: '#09090b', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '3px' }}>
+                      <span style={{ color: '#3b82f6', fontSize: '11px' }}>🛡️</span> Secure
+                    </div>
+                    <span style={{ fontSize: '8px', color: '#71717a', fontWeight: '600', display: 'block', marginTop: '2px' }}>Your data is safe</span>
+                  </div>
+                  <div style={{ textAlign: 'center', borderLeft: '1px solid #e4e4e7' }}>
+                    <div style={{ fontSize: '10px', fontWeight: '800', color: '#09090b', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '3px' }}>
+                      <span style={{ color: '#ea580c', fontSize: '11px' }}>⚡</span> Quick
+                    </div>
+                    <span style={{ fontSize: '8px', color: '#71717a', fontWeight: '600', display: 'block', marginTop: '2px' }}>Replies fast</span>
+                  </div>
+                  <div style={{ textAlign: 'center', borderLeft: '1px solid #e4e4e7' }}>
+                    <div style={{ fontSize: '10px', fontWeight: '800', color: '#09090b', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '3px' }}>
+                      <span style={{ color: '#8b5cf6', fontSize: '11px' }}>👤</span> Tutors
+                    </div>
+                    <span style={{ fontSize: '8px', color: '#71717a', fontWeight: '600', display: 'block', marginTop: '2px' }}>PhD experts</span>
+                  </div>
+                </div>
+
+                {/* Submit button */}
+                <button 
                   type="submit" 
-                  className="btn pulse-animation" 
                   disabled={isSubmitting}
                   style={{ 
                     width: '100%', 
-                    padding: '14px 0', 
-                    fontSize: '15px', 
-                    fontWeight: '700', 
+                    height: '48px',
                     borderRadius: '100px', 
                     backgroundColor: isSubmitting ? '#4b5563' : '#22c55e', 
                     color: 'white',
                     border: 'none',
-                    boxShadow: isSubmitting ? 'none' : '0 8px 20px rgba(34, 197, 94, 0.25)',
+                    boxShadow: isSubmitting ? 'none' : '0 6px 20px rgba(34, 197, 94, 0.25)',
                     cursor: isSubmitting ? 'not-allowed' : 'pointer',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    gap: '6px',
-                    marginTop: '8px'
+                    gap: '8px',
+                    fontWeight: '800',
+                    fontSize: '14.5px',
+                    transition: 'all 0.2s ease',
+                    marginTop: '8px',
+                    position: 'relative',
+                    padding: '0 24px'
                   }}
+                  className="pulse-animation"
                 >
-                  {isSubmitting ? (
-                    <>
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" className="spinning-loader" style={{ animation: 'spin 1s linear infinite' }}>
-                        <circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.2)"></circle>
-                        <path d="M4 12a8 8 0 0 1 8-8"></path>
-                      </svg>
-                      Connecting to WhatsApp...
-                    </>
-                  ) : (
-                    <>
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.197 1.448 4.969 1.449 5.375 0 9.747-4.321 9.75-9.63 0-2.573-1.002-4.991-2.822-6.813C16.726 2.339 14.316 1.336 11.75 1.336 6.372 1.336 2 5.659 1.997 10.97c0 1.838.487 3.593 1.411 5.163l-1.077 3.93 4.07-1.066c.265.144.53.28.796.406v-.004z" />
-                      </svg>
-                      Get Free Quote on WhatsApp
-                    </>
-                  )}
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.197 1.448 4.969 1.449 5.375 0 9.747-4.321 9.75-9.63 0-2.573-1.002-4.991-2.822-6.813C16.726 2.339 14.316 1.336 11.75 1.336 6.372 1.336 2 5.659 1.997 10.97c0 1.838.487 3.593 1.411 5.163l-1.077 3.93 4.07-1.066c.265.144.53.28.796.406v-.004z" />
+                  </svg>
+                  <span style={{ flex: 1, textAlign: 'center' }}>Get Free Quote on WhatsApp</span>
+                  <span style={{ width: '22px', height: '22px', borderRadius: '50%', background: '#ffffff', color: '#22c55e', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', fontWeight: '900', flexShrink: 0 }}>→</span>
                 </button>
+
+                {/* Spam disclaimer footer */}
+                <div style={{ fontSize: '11px', color: '#64748b', fontWeight: '600', marginTop: '6px', textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>
+                  🔒 No Spam • No Calls • Only WhatsApp
+                </div>
+
               </form>
             </div>
           </div>

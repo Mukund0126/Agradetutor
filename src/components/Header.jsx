@@ -115,7 +115,7 @@ export default function Header({ setCurrentPage }) {
           
           {/* Brand Logo */}
           <div className="logo" onClick={() => handleNavClick('top')} style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
-            <img src="/logo.png" alt="A Grade Tutor Logo" style={{ height: '48px', objectFit: 'contain' }} />
+            <img src="/logo.png" alt="A Grade Tutor Logo" style={{ height: '60px', objectFit: 'contain' }} />
           </div>
 
           {/* Desktop Navigation */}
@@ -228,7 +228,7 @@ export default function Header({ setCurrentPage }) {
           }
           .services-dropdown {
             position: absolute;
-            top: 65px;
+            top: 75px;
             left: 50%;
             transform: translateX(-50%);
             background: #ffffff;
@@ -288,7 +288,7 @@ export default function Header({ setCurrentPage }) {
             .nav-menu {
               display: ${mobileMenuOpen ? 'flex' : 'none'} !important;
               position: absolute;
-              top: 70px;
+              top: 80px;
               left: 0;
               right: 0;
               background: var(--bg-primary);

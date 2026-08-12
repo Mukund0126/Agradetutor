@@ -73,8 +73,8 @@ export default function Footer({ setCurrentPage }) {
           {/* Column 1: Brand & Contact Info */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {/* Logo */}
-            <div style={{ display: 'flex', alignItems: 'center', background: '#ffffff', padding: '6px 14px', borderRadius: '8px', width: 'fit-content', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
-              <img src="/logo.png" alt="A Grade Tutor Logo" style={{ height: '36px', objectFit: 'contain' }} />
+            <div style={{ display: 'flex', alignItems: 'center', background: '#ffffff', padding: '8px 18px', borderRadius: '10px', width: 'fit-content', boxShadow: '0 4px 12px rgba(0,0,0,0.06)' }}>
+              <img src="/logo.png" alt="A Grade Tutor Logo" style={{ height: '54px', objectFit: 'contain' }} />
             </div>
 
             <p style={{ fontSize: '13px', lineHeight: '1.6', color: '#cbd5e1', margin: 0, fontFamily: 'var(--font-body)', fontWeight: '500' }}>

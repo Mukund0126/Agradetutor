@@ -317,7 +317,7 @@ header.scrolled {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 70px;
+  height: 80px;
 }
 
 .logo {
@@ -668,4 +668,88 @@ footer p {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Shadcn Form Elements Styling */
+.shadcn-card {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #e4e4e7;
+  border-radius: 24px;
+  box-shadow: 0 20px 45px -12px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.01);
+  padding: 32px;
+  box-sizing: border-box;
+}
+
+.shadcn-label {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #09090b;
+  margin-bottom: 0;
+  line-height: 1.4;
+  font-family: var(--font-headings);
+}
+
+.shadcn-input {
+  width: 100%;
+  height: 46px;
+  padding: 0 14px;
+  border: 1px solid #e4e4e7;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #09090b;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-body);
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.15s ease-in-out;
+}
+
+.shadcn-input::placeholder {
+  color: #a1a1aa;
+  font-weight: 400;
+}
+
+.shadcn-input:focus {
+  border-color: #a78bfa;
+  box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.12);
+  background-color: #ffffff;
+}
+
+.shadcn-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2371717a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 15px;
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+.shadcn-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #e4e4e7;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #09090b;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-body);
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.15s ease-in-out;
+}
+
+.shadcn-textarea::placeholder {
+  color: #a1a1aa;
+  font-weight: 400;
+}
+
+.shadcn-textarea:focus {
+  border-color: #a78bfa;
+  box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.12);
+  background-color: #ffffff;
 }
