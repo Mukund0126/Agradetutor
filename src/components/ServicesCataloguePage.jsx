@@ -217,19 +217,9 @@ export default function ServicesCataloguePage({ setCurrentPage }) {
               return (
                 <div 
                   key={svc.num}
-                  className="glass-card"
+                  className="glass-card catalogue-card"
                   style={{
-                    display: 'flex',
-                    flexDirection: isEven ? 'row' : 'row-reverse',
-                    alignItems: 'stretch',
-                    borderRadius: '24px',
-                    border: '1.5px solid #e2e8f0',
-                    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.02)',
-                    background: '#ffffff',
-                    overflow: 'hidden',
-                    minHeight: '300px',
-                    transition: 'all 0.3s ease',
-                    textAlign: 'left'
+                    flexDirection: isEven ? 'row' : 'row-reverse'
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-4px)';
@@ -244,14 +234,9 @@ export default function ServicesCataloguePage({ setCurrentPage }) {
                 >
                   {/* Image/Visual Mockup Side */}
                   <div 
+                    className="catalogue-visual-side"
                     style={{ 
-                      flex: 1, 
-                      background: svc.bgGradient,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      padding: '40px',
-                      position: 'relative'
+                      background: svc.bgGradient
                     }}
                   >
                     <div 
@@ -291,16 +276,7 @@ export default function ServicesCataloguePage({ setCurrentPage }) {
                   </div>
 
                   {/* Body Content Side */}
-                  <div 
-                    style={{ 
-                      flex: 1.2, 
-                      padding: '48px', 
-                      display: 'flex', 
-                      flexDirection: 'column', 
-                      justifyContent: 'center', 
-                      gap: '16px' 
-                    }}
-                  >
+                  <div className="catalogue-content-side">
                     <div style={{ fontSize: '48px', fontWeight: '900', color: '#cbd5e1', fontFamily: 'var(--font-headings)', lineHeight: '1' }}>
                       {svc.num}
                     </div>

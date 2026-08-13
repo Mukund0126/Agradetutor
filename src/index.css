@@ -753,3 +753,252 @@ footer p {
   box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.12);
   background-color: #ffffff;
 }
+
+/* Responsive adjustments for service pages */
+.hero-title {
+  font-size: 42px;
+  margin-bottom: 16px;
+  line-height: 1.2;
+  font-family: var(--font-headings);
+  font-weight: 900;
+  color: var(--text-primary);
+}
+
+.hero-stats-row {
+  display: flex;
+  gap: 30px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 24px;
+}
+
+.shadcn-card-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.shadcn-card-title {
+  font-size: 26px;
+  font-weight: 900;
+  color: #09090b;
+  margin-bottom: 6px;
+  line-height: 1.25;
+  letter-spacing: -0.8px;
+  font-family: var(--font-headings);
+}
+
+.shadcn-card-pane {
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 28px;
+    text-align: center;
+  }
+  
+  .service-page .hero-section {
+    padding: 40px 0 !important;
+  }
+  
+  .service-page .hero-section .container.grid-cols-2 {
+    gap: 24px !important;
+    padding-top: 0 !important;
+  }
+  
+  .hero-stats-row {
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 12px;
+  }
+  
+  .hero-stats-row div p {
+    font-size: 11px !important;
+  }
+  
+  .shadcn-card {
+    padding: 20px !important;
+    border-radius: 16px !important;
+  }
+  
+  .shadcn-card-pane {
+    padding: 20px !important;
+  }
+  
+  .shadcn-card-header {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+    gap: 12px;
+  }
+  
+  .shadcn-card-header div:last-child {
+    display: none !important; /* Hide checklist illustration on mobile to save vertical space */
+  }
+  
+  .shadcn-card-title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-stats-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .hero-stats-row div {
+    text-align: center;
+  }
+  
+  .hero-stats-row div:nth-child(2) {
+    display: none !important; /* Hide vertical separator bar */
+  }
+}
+
+/* Services Catalogue Card responsive layouts */
+.catalogue-card {
+  display: flex;
+  align-items: stretch;
+  border-radius: 24px;
+  border: 1.5px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+  background: #ffffff;
+  overflow: hidden;
+  min-height: 300px;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.catalogue-visual-side {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  position: relative;
+}
+
+.catalogue-content-side {
+  flex: 1.2;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .catalogue-card {
+    flex-direction: column !important; /* Stack vertically on mobile screen */
+    min-height: auto;
+  }
+  
+  .catalogue-visual-side {
+    padding: 30px 20px !important;
+    height: 160px;
+  }
+  
+  .catalogue-content-side {
+    padding: 24px !important;
+    gap: 12px !important;
+  }
+  
+  .catalogue-content-side h2 {
+    font-size: 20px !important;
+  }
+  
+  .catalogue-content-side p {
+    font-size: 13.5px !important;
+  }
+}
+
+/* Premium WhatsApp Support container responsiveness */
+.whatsapp-support-inner {
+  padding: 48px;
+  gap: 48px;
+  align-items: center;
+}
+
+.premium-tel-container {
+  display: flex;
+  align-items: center;
+  background: #f8fafc;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 4px 8px;
+  transition: all 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.premium-tel-select {
+  width: 115px;
+  padding: 10px 24px 10px 8px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-weight: 700;
+  font-size: 14px;
+  color: #334155;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23334155' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 4px center;
+  background-size: 12px;
+  cursor: pointer;
+}
+
+.premium-tel-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 10px 0;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #1e293b;
+  width: 100%;
+}
+
+.whatsapp-features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 24px;
+  text-align: left;
+  margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+  .whatsapp-support-inner {
+    padding: 24px !important;
+    gap: 24px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .premium-tel-select {
+    width: 82px !important;
+    font-size: 13px !important;
+    padding-right: 18px !important;
+  }
+  
+  .premium-tel-input {
+    font-size: 13px !important;
+  }
+  
+  .premium-tel-input::placeholder {
+    font-size: 12px !important;
+  }
+  
+  .whatsapp-features-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+}

@@ -346,7 +346,7 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
                 </div>
 
                 {/* Right pane */}
-                <div style={{ padding: '36px', display: 'flex', flexDirection: 'column', justifyContent: 'center', background: '#ffffff', position: 'relative' }}>
+                <div className="shadcn-card-pane" style={{ background: '#ffffff', position: 'relative' }}>
                   
                   {/* Top badge */}
                   <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#f5f3ff', border: '1px solid #ddd6fe', color: '#6d28d9', padding: '5px 14px', borderRadius: '100px', fontSize: '11px', fontWeight: '750', marginBottom: '16px', width: 'fit-content' }}>
@@ -354,9 +354,9 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
                   </div>
 
                   {/* Title & Graphic Header */}
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: '16px', alignItems: 'center', marginBottom: '24px' }}>
+                  <div className="shadcn-card-header">
                     <div>
-                      <h3 style={{ fontSize: '24px', fontWeight: '900', color: '#09090b', marginBottom: '6px', lineHeight: '1.25', letterSpacing: '-0.8px', fontFamily: 'var(--font-headings)' }}>
+                      <h3 className="shadcn-card-title">
                         Get Your <br />
                         <span style={{ background: 'linear-gradient(90deg, #ec4899, #8b5cf6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{config.title} Quote</span>
                       </h3>
@@ -1257,7 +1257,7 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
             >
               ← Back to Homepage
             </span>
-            <h1 style={{ fontSize: '42px', marginBottom: '16px', lineHeight: '1.2' }}>
+            <h1 className="hero-title">
               {config.title}
             </h1>
             <p style={{ fontSize: '18px', color: 'var(--primary)', fontWeight: '600', marginBottom: '16px' }}>
@@ -1267,7 +1267,7 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
               {config.heroText}
             </p>
 
-            <div style={{ display: 'flex', gap: '30px', borderTop: '1px solid var(--border-color)', paddingTop: '24px' }}>
+            <div className="hero-stats-row">
               <div>
                 <span style={{ fontSize: '18px', fontWeight: '800', color: 'var(--text-primary)' }}>4.9/5 Rating</span>
                 <p style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>Based on student feedback</p>
@@ -1282,11 +1282,8 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
 
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <div className="shadcn-card" style={{ 
-              width: '100%', 
               maxWidth: '480px', 
-              padding: '32px', 
               border: '1px solid #e4e4e7', 
-              borderRadius: '24px', 
               background: '#ffffff',
               boxShadow: '0 20px 40px -15px rgba(99, 102, 241, 0.12), 0 1px 3px rgba(0, 0, 0, 0.02)',
               position: 'relative',
@@ -1299,9 +1296,9 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
               </div>
 
               {/* Title & Graphic Header */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: '16px', alignItems: 'center', marginBottom: '24px' }}>
+              <div className="shadcn-card-header">
                 <div>
-                  <h3 style={{ fontSize: '26px', fontWeight: '900', color: '#09090b', marginBottom: '6px', lineHeight: '1.25', letterSpacing: '-0.8px', fontFamily: 'var(--font-headings)' }}>
+                  <h3 className="shadcn-card-title">
                     Get Your <br />
                     <span style={{ background: 'linear-gradient(90deg, #ec4899, #8b5cf6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{config.title} Quote</span>
                   </h3>

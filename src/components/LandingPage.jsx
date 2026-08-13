@@ -1364,7 +1364,7 @@ export default function LandingPage({ setCurrentPage }) {
               flexDirection: 'column'
             }}
           >
-            <div className="grid-cols-2" style={{ padding: '48px', gap: '48px', alignItems: 'center' }}>
+            <div className="grid-cols-2 whatsapp-support-inner">
               
               {/* Left Column: Promotion */}
               <div style={{ textAlign: 'left' }}>
@@ -1429,38 +1429,11 @@ export default function LandingPage({ setCurrentPage }) {
                     <label style={{ fontSize: '11px', color: '#64748b', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '1px', display: 'block', marginBottom: '8px' }}>
                       YOUR WHATSAPP NUMBER
                     </label>
-                    <div 
-                      className="premium-tel-container"
-                      style={{ 
-                        display: 'flex', 
-                        alignItems: 'center',
-                        background: '#f8fafc',
-                        border: '1.5px solid #cbd5e1',
-                        borderRadius: '12px',
-                        padding: '4px 8px',
-                        transition: 'all 0.2s ease',
-                        width: '100%'
-                      }}
-                    >
+                    <div className="premium-tel-container">
                       <select 
                         value={phonePrefix} 
                         onChange={(e) => setPhonePrefix(e.target.value)}
-                        style={{ 
-                          width: '115px', 
-                          padding: '10px 24px 10px 8px',
-                          background: 'transparent',
-                          border: 'none',
-                          outline: 'none',
-                          fontWeight: '700',
-                          fontSize: '14px',
-                          color: '#334155',
-                          appearance: 'none',
-                          backgroundImage: `url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23334155' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")`,
-                          backgroundRepeat: 'no-repeat',
-                          backgroundPosition: 'right 4px center',
-                          backgroundSize: '12px',
-                          cursor: 'pointer'
-                        }}
+                        className="premium-tel-select"
                       >
                         {countryCodes.map((c, index) => (
                           <option key={index} value={c.code} style={{ fontWeight: '600' }}>
@@ -1479,16 +1452,7 @@ export default function LandingPage({ setCurrentPage }) {
                           value={whatsAppNum}
                           onChange={(e) => setWhatsAppNum(e.target.value)}
                           required
-                          style={{ 
-                            flex: 1,
-                            background: 'transparent',
-                            border: 'none',
-                            outline: 'none',
-                            padding: '10px 0',
-                            fontSize: '14.5px',
-                            fontWeight: '600',
-                            color: '#1e293b'
-                          }}
+                          className="premium-tel-input"
                           onFocus={(e) => {
                             const container = e.target.closest('.premium-tel-container');
                             if (container) {
@@ -1572,7 +1536,7 @@ export default function LandingPage({ setCurrentPage }) {
                 </button>
 
                 {/* 2x2 Feature Grid */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px 24px', textAlign: 'left', marginTop: '8px' }}>
+                <div className="whatsapp-features-grid">
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', fontWeight: '600', color: '#475569' }}>
                     <span style={{ color: '#f97316' }}>⚡</span> Instant reply
                   </div>
