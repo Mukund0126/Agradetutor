@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { servicesConfig } from '../config/servicesConfig';
+import { Rocket, Sparkles, GraduationCap, Monitor, Star, ShieldCheck, Phone, Users, FileText, Clock, ClipboardList, BookOpen, Search, BarChart, Zap, CheckCircle, FlaskConical, PenTool, Book, File, Calendar, Info, User, MessageCircle, Lock, UserCheck, Globe } from 'lucide-react';
 
 const countryCodes = [
   { code: '+1', name: 'US', flag: '🇺🇸' },
@@ -145,9 +146,9 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
       `📚 *Subject:* ${formData.subject === 'Other' ? formData.customSubject || 'Other' : formData.subject}\n` +
       `📝 *Topic/Title:* ${formData.topic}\n` +
       `⏱ *Deadline:* ${formData.deadline}\n` +
-      `🎓 *Target Grade:* ${formData.grade}\n` +
+      `<GraduationCap size={16} /> *Target Grade:* ${formData.grade}\n` +
       `📎 *Attached Files:* ${attachedFilesText}\n` +
-      `📋 *Instructions:* ${formData.instructions || 'None'}\n\n` +
+      `<ClipboardList size={16} /> *Instructions:* ${formData.instructions || 'None'}\n\n` +
       `Please connect me with a subject-matter expert for this task.`;
 
     const encodedMessage = encodeURIComponent(waMessage);
@@ -216,7 +217,7 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
                   ].map((bullet, idx) => (
                     <div key={idx} style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
                       <div style={{ width: '20px', height: '20px', borderRadius: '50%', backgroundColor: '#ecfdf5', border: '1.5px solid #10b981', color: '#10b981', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '800', fontSize: '11px' }}>
-                        ✓
+                        <CheckCircle size={16} />
                       </div>
                       <span style={{ fontSize: '14.5px', fontWeight: '700', color: '#1e293b' }}>{bullet}</span>
                     </div>
@@ -270,9 +271,9 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
 
             {/* Badges bar */}
             <div style={{ display: 'flex', justifyContent: 'center', gap: '32px', flexWrap: 'wrap', marginTop: '30px', fontSize: '13px', color: '#475569', fontWeight: '700' }}>
-              <span>⭐ 4.9/5 Rating</span>
-              <span>👥 50,000+ Students Helped</span>
-              <span>🛡️ 100% Plagiarism Free</span>
+              <span><Star size={16} fill="currentColor" /> 4.9/5 Rating</span>
+              <span><Users size={16} /> 50,000+ Students Helped</span>
+              <span><ShieldCheck size={16} /> 100% Plagiarism Free</span>
               <span>🌍 Trusted Globally</span>
             </div>
 
@@ -339,7 +340,7 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
                     </div>
 
                     <div>
-                      <div style={{ display: 'flex', gap: '2px', color: '#ea580c', fontSize: '13px' }}>★★★★★</div>
+                      <div style={{ display: 'flex', gap: '2px', color: '#ea580c', fontSize: '13px' }}><Star size={16} fill="currentColor" /><Star size={16} fill="currentColor" /><Star size={16} fill="currentColor" /><Star size={16} fill="currentColor" /><Star size={16} fill="currentColor" /></div>
                       <p style={{ fontSize: '12px', color: '#475569', margin: 0, fontWeight: '700' }}>
                         <span style={{ color: '#0f172a' }}>2M+ students</span> trust A Grade Tutor
                       </p>
@@ -352,7 +353,7 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
                   
                   {/* Top badge */}
                   <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#f5f3ff', border: '1px solid #ddd6fe', color: '#6d28d9', padding: '5px 14px', borderRadius: '100px', fontSize: '11px', fontWeight: '750', marginBottom: '16px', width: 'fit-content' }}>
-                    <span style={{ fontSize: '12px' }}>🎓</span> PhD Experts. Real Help. Fast.
+                    <span style={{ fontSize: '12px' }}><GraduationCap size={16} /></span> PhD Experts. Real Help. Fast.
                   </div>
 
                   {/* Title & Graphic Header */}
@@ -386,7 +387,7 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
                     {/* Select Subject */}
                     <div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                        <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#eff6ff', color: '#2563eb', fontSize: '13px' }}>📖</span>
+                        <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#eff6ff', color: '#2563eb', fontSize: '13px' }}><Book size={16} /></span>
                         <label className="shadcn-label" style={{ margin: 0, fontWeight: '700', fontSize: '13.5px' }}>Select Subject</label>
                       </div>
                       <div style={{ position: 'relative' }}>
@@ -420,7 +421,7 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
                     {/* Topic / Guidelines */}
                     <div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                        <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#ecfdf5', color: '#059669', fontSize: '13px' }}>📝</span>
+                        <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#ecfdf5', color: '#059669', fontSize: '13px' }}><FileText size={16} /></span>
                         <label className="shadcn-label" style={{ margin: 0, fontWeight: '700', fontSize: '13.5px' }}>Topic / Guidelines</label>
                       </div>
                       <div style={{ position: 'relative' }}>
@@ -433,14 +434,14 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
                           className="shadcn-input"
                           style={{ paddingLeft: '14px', paddingRight: '40px', border: '1px solid #e4e4e7', borderRadius: '8px' }}
                         />
-                        <span style={{ position: 'absolute', right: '14px', top: '50%', transform: 'translateY(-50%)', fontSize: '14px', color: '#94a3b8', pointerEvents: 'none' }}>📄</span>
+                        <span style={{ position: 'absolute', right: '14px', top: '50%', transform: 'translateY(-50%)', fontSize: '14px', color: '#94a3b8', pointerEvents: 'none' }}><File size={16} /></span>
                       </div>
                     </div>
 
                     {/* Deadline */}
                     <div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                        <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#fff5f5', color: '#e11d48', fontSize: '13px' }}>📅</span>
+                        <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#fff5f5', color: '#e11d48', fontSize: '13px' }}><Calendar size={16} /></span>
                         <label className="shadcn-label" style={{ margin: 0, fontWeight: '700', fontSize: '13.5px' }}>Deadline</label>
                       </div>
                       <div style={{ position: 'relative' }}>
@@ -452,14 +453,14 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
                           className="shadcn-input"
                           style={{ paddingLeft: '14px', paddingRight: '40px', border: '1px solid #e4e4e7', borderRadius: '8px' }}
                         />
-                        <span style={{ position: 'absolute', right: '14px', top: '50%', transform: 'translateY(-50%)', fontSize: '14px', color: '#e11d48', pointerEvents: 'none' }}>📅</span>
+                        <span style={{ position: 'absolute', right: '14px', top: '50%', transform: 'translateY(-50%)', fontSize: '14px', color: '#e11d48', pointerEvents: 'none' }}><Calendar size={16} /></span>
                       </div>
                     </div>
 
                     {/* Specific Instructions */}
                     <div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                        <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#eff6ff', color: '#2563eb', fontSize: '13px' }}>ℹ️</span>
+                        <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#eff6ff', color: '#2563eb', fontSize: '13px' }}><Info size={16} /></span>
                         <label className="shadcn-label" style={{ margin: 0, fontWeight: '700', fontSize: '13.5px' }}>Specific Instructions</label>
                       </div>
                       <textarea 
@@ -476,19 +477,19 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '6px', background: '#fafafa', padding: '12px 6px', borderRadius: '12px', border: '1px solid #f3f3f3', marginTop: '4px' }}>
                       <div style={{ textAlign: 'center' }}>
                         <div style={{ fontSize: '10px', fontWeight: '800', color: '#09090b', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '3px' }}>
-                          <span style={{ color: '#3b82f6', fontSize: '11px' }}>🛡️</span> Secure
+                          <span style={{ color: '#3b82f6', fontSize: '11px' }}><ShieldCheck size={16} /></span> Secure
                         </div>
                         <span style={{ fontSize: '8px', color: '#71717a', fontWeight: '600', display: 'block', marginTop: '2px' }}>Your data is safe</span>
                       </div>
                       <div style={{ textAlign: 'center', borderLeft: '1px solid #e4e4e7' }}>
                         <div style={{ fontSize: '10px', fontWeight: '800', color: '#09090b', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '3px' }}>
-                          <span style={{ color: '#ea580c', fontSize: '11px' }}>⚡</span> Quick
+                          <span style={{ color: '#ea580c', fontSize: '11px' }}><Zap size={16} fill="currentColor" /></span> Quick
                         </div>
                         <span style={{ fontSize: '8px', color: '#71717a', fontWeight: '600', display: 'block', marginTop: '2px' }}>Replies fast</span>
                       </div>
                       <div style={{ textAlign: 'center', borderLeft: '1px solid #e4e4e7' }}>
                         <div style={{ fontSize: '10px', fontWeight: '800', color: '#09090b', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '3px' }}>
-                          <span style={{ color: '#8b5cf6', fontSize: '11px' }}>👤</span> Tutors
+                          <span style={{ color: '#8b5cf6', fontSize: '11px' }}><User size={16} /></span> Tutors
                         </div>
                         <span style={{ fontSize: '8px', color: '#71717a', fontWeight: '600', display: 'block', marginTop: '2px' }}>PhD experts</span>
                       </div>
@@ -607,7 +608,7 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
                 ].map((s, idx) => (
                   <div key={idx} style={{ display: 'flex', gap: '20px', alignItems: 'flex-start', position: 'relative', zIndex: 2 }}>
                     <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: '#ea580c', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '800', fontSize: '16px', flexShrink: 0, boxShadow: '0 4px 10px rgba(234,88,12,0.2)' }}>
-                      {s.step === 1 ? '📤' : s.step === 2 ? '👤' : s.step === 3 ? '💳' : '📄'}
+                      {s.step === 1 ? '📤' : s.step === 2 ? '<User size={16} />' : s.step === 3 ? '💳' : '<File size={16} />'}
                     </div>
                     <div>
                       <h4 style={{ fontSize: '16.5px', fontWeight: '850', color: '#0f172a', margin: '0 0 6px 0' }}>{s.title}</h4>
@@ -655,7 +656,7 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
               {/* Left Card: What's Included */}
               <div style={{ background: '#ffffff', border: '1.5px solid #e2e8f0', borderTop: '5px solid #10b981', borderRadius: '16px', padding: '36px', boxShadow: '0 4px 20px rgba(0,0,0,0.02)', display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '28px' }}>
-                  <div style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: '#ecfdf5', color: '#10b981', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px', fontWeight: '800' }}>✓</div>
+                  <div style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: '#ecfdf5', color: '#10b981', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px', fontWeight: '800' }}><CheckCircle size={16} /></div>
                   <h3 style={{ fontSize: '18px', fontWeight: '800', color: '#0f172a', margin: 0 }}>What's Included</h3>
                 </div>
                 
@@ -668,14 +669,14 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
                     'Affordable pricing',
                   ].map((item, idx) => (
                     <div key={idx} style={{ padding: '14px 16px', background: '#f8fafc', borderRadius: '8px', border: '1px solid #f1f5f9', display: 'flex', alignItems: 'center', gap: '12px' }}>
-                      <div style={{ width: '18px', height: '18px', borderRadius: '50%', backgroundColor: '#10b981', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10px', fontWeight: '800' }}>✓</div>
+                      <div style={{ width: '18px', height: '18px', borderRadius: '50%', backgroundColor: '#10b981', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10px', fontWeight: '800' }}><CheckCircle size={16} /></div>
                       <span style={{ fontSize: '13.5px', fontWeight: '700', color: '#1e293b' }}>{item}</span>
                     </div>
                   ))}
                   
                   {/* Highlighted last item */}
                   <div style={{ padding: '14px 16px', background: '#ecfdf5', borderRadius: '8px', border: '1.5px dashed #a7f3d0', display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <div style={{ width: '18px', height: '18px', borderRadius: '50%', backgroundColor: '#10b981', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10px', fontWeight: '800' }}>✓</div>
+                    <div style={{ width: '18px', height: '18px', borderRadius: '50%', backgroundColor: '#10b981', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10px', fontWeight: '800' }}><CheckCircle size={16} /></div>
                     <span style={{ fontSize: '13.5px', fontWeight: '800', color: '#065f46' }}>Unlimited revisions</span>
                   </div>
                 </div>
@@ -684,7 +685,7 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
               {/* Right Card: Why Students Need Help */}
               <div style={{ background: '#ffffff', border: '1.5px solid #e2e8f0', borderTop: '5px solid #ea580c', borderRadius: '16px', padding: '36px', boxShadow: '0 4px 20px rgba(0,0,0,0.02)', display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '28px' }}>
-                  <div style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: '#fff7ed', color: '#ea580c', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px' }}>💬</div>
+                  <div style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: '#fff7ed', color: '#ea580c', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px' }}><MessageCircle size={16} /></div>
                   <h3 style={{ fontSize: '18px', fontWeight: '800', color: '#0f172a', margin: 0 }}>Why Students Need Assignment Help</h3>
                 </div>
 
@@ -718,17 +719,17 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
               
               {/* Header inside border */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '6px 16px', background: '#fff7ed', border: '1.5px solid #fed7aa', borderRadius: '100px', color: '#ea580c', fontWeight: '800', fontSize: '14px', position: 'absolute', top: '-18px', left: '24px' }}>
-                ⚡ Free With Every Order
+                <Zap size={16} fill="currentColor" /> Free With Every Order
               </div>
 
               {/* 3x2 grid */}
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', marginTop: '16px' }} className="freebies-grid">
                 {[
-                  { label: 'Plagiarism report', icon: '📄' },
+                  { label: 'Plagiarism report', icon: '<File size={16} />' },
                   { label: 'Revisions until satisfied', icon: '🔁' },
                   { label: 'APA / MLA formatting', icon: '📐' },
-                  { label: 'Title & reference page', icon: '📖' },
-                  { label: '24/7 customer support', icon: '💬' },
+                  { label: 'Title & reference page', icon: '<Book size={16} />' },
+                  { label: '24/7 customer support', icon: '<MessageCircle size={16} />' },
                   { label: 'Expert consultation', icon: '🎓' }
                 ].map((item, idx) => (
                   <div key={idx} style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '16px 20px', display: 'flex', alignItems: 'center', gap: '12px', boxShadow: '0 2px 8px rgba(0,0,0,0.01)' }}>
@@ -769,7 +770,7 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
               {/* Card 1: Trust Pilot */}
               <div style={{ background: '#ffffff', border: '1.5px solid #e2e8f0', borderRadius: '16px', padding: '24px', textAlign: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.02)' }}>
                 <div style={{ fontSize: '20px', color: '#00b67a', fontWeight: '800', marginBottom: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>
-                  ★ <span style={{ color: '#0f172a', fontSize: '14px', fontWeight: '900' }}>Trustpilot</span>
+                  <Star size={16} fill="currentColor" /> <span style={{ color: '#0f172a', fontSize: '14px', fontWeight: '900' }}>Trustpilot</span>
                 </div>
                 <h4 style={{ fontSize: '13.5px', color: '#64748b', fontWeight: '700', marginBottom: '12px' }}>Trust Pilot</h4>
                 <p style={{ fontSize: '32px', color: '#ea580c', fontWeight: '900', margin: 0 }}>4.4</p>
@@ -787,7 +788,7 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
               {/* Card 3: Sitejabber */}
               <div style={{ background: '#ffffff', border: '1.5px solid #e2e8f0', borderRadius: '16px', padding: '24px', textAlign: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.02)' }}>
                 <div style={{ fontSize: '20px', color: '#0ea5e9', fontWeight: '800', marginBottom: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>
-                  ⭐ <span style={{ color: '#0f172a', fontSize: '14px', fontWeight: '900' }}>Sitejabber</span>
+                  <Star size={16} fill="currentColor" /> <span style={{ color: '#0f172a', fontSize: '14px', fontWeight: '900' }}>Sitejabber</span>
                 </div>
                 <h4 style={{ fontSize: '13.5px', color: '#64748b', fontWeight: '700', marginBottom: '12px' }}>Sitejabber</h4>
                 <p style={{ fontSize: '32px', color: '#ea580c', fontWeight: '900', margin: 0 }}>4.6</p>
@@ -796,7 +797,7 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
               {/* Card 4: Student Review */}
               <div style={{ background: '#ffffff', border: '1.5px solid #e2e8f0', borderRadius: '16px', padding: '24px', textAlign: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.02)' }}>
                 <div style={{ fontSize: '20px', color: '#6366f1', fontWeight: '800', marginBottom: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>
-                  🎓 <span style={{ color: '#0f172a', fontSize: '14px', fontWeight: '900' }}>Student Review</span>
+                  <GraduationCap size={16} /> <span style={{ color: '#0f172a', fontSize: '14px', fontWeight: '900' }}>Student Review</span>
                 </div>
                 <h4 style={{ fontSize: '13.5px', color: '#64748b', fontWeight: '700', marginBottom: '12px' }}>Student Review</h4>
                 <p style={{ fontSize: '32px', color: '#ea580c', fontWeight: '900', margin: 0 }}>4.8</p>
@@ -839,25 +840,25 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
                     {
                       num: 1,
                       title: 'Assured Quality',
-                      avatar: '👩‍🎓',
+                      avatar: '👩‍<GraduationCap size={16} />',
                       bullets: ['100% task accuracy', 'Detailed explanations', 'Step-wise solutions']
                     },
                     {
                       num: 2,
                       title: 'Time Constraints',
-                      avatar: '⏱️',
+                      avatar: '<Clock size={16} />',
                       bullets: ['Quick turnover time', '24/7 expert guidance', 'On-time submission']
                     },
                     {
                       num: 3,
                       title: 'Uniqueness',
-                      avatar: '🛡️',
+                      avatar: '<ShieldCheck size={16} />',
                       bullets: ['Non plagiarized task', 'Personalized solutions', 'Multiple modifications']
                     },
                     {
                       num: 4,
                       title: 'Learning Scope',
-                      avatar: '📚',
+                      avatar: '<BookOpen size={16} />',
                       bullets: ['Thorough subject understanding', 'Cover knowledge gaps', 'Increased knowledge retention']
                     }
                   ].map((a, idx) => (
@@ -871,7 +872,7 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                         {a.bullets.map((b, bIdx) => (
                           <div key={bIdx} style={{ display: 'flex', gap: '6px', alignItems: 'center', fontSize: '12px', color: '#475569', fontWeight: '600' }}>
-                            <span style={{ color: '#10b981' }}>✓</span>
+                            <span style={{ color: '#10b981' }}><CheckCircle size={16} /></span>
                             <span>{b}</span>
                           </div>
                         ))}
@@ -1303,7 +1304,7 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
               
               {/* Top badge */}
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#f5f3ff', border: '1px solid #ddd6fe', color: '#6d28d9', padding: '5px 14px', borderRadius: '100px', fontSize: '11px', fontWeight: '750', marginBottom: '16px' }}>
-                <span style={{ fontSize: '12px' }}>🎓</span> PhD Experts. Real Help. Fast.
+                <span style={{ fontSize: '12px' }}><GraduationCap size={16} /></span> PhD Experts. Real Help. Fast.
               </div>
 
               {/* Title & Graphic Header */}
@@ -1337,7 +1338,7 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
                 {/* Select Subject */}
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                    <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#eff6ff', color: '#2563eb', fontSize: '13px' }}>📖</span>
+                    <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#eff6ff', color: '#2563eb', fontSize: '13px' }}><Book size={16} /></span>
                     <label className="shadcn-label" style={{ margin: 0, fontWeight: '700', fontSize: '13.5px' }}>Select Subject</label>
                   </div>
                   <div style={{ position: 'relative' }}>
@@ -1371,7 +1372,7 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
                 {/* Topic / Guidelines */}
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                    <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#ecfdf5', color: '#059669', fontSize: '13px' }}>📝</span>
+                    <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#ecfdf5', color: '#059669', fontSize: '13px' }}><FileText size={16} /></span>
                     <label className="shadcn-label" style={{ margin: 0, fontWeight: '700', fontSize: '13.5px' }}>Topic / Guidelines</label>
                   </div>
                   <div style={{ position: 'relative' }}>
@@ -1384,14 +1385,14 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
                       className="shadcn-input"
                       style={{ paddingLeft: '14px', paddingRight: '40px', border: '1px solid #e4e4e7', borderRadius: '8px' }}
                     />
-                    <span style={{ position: 'absolute', right: '14px', top: '50%', transform: 'translateY(-50%)', fontSize: '14px', color: '#94a3b8', pointerEvents: 'none' }}>📄</span>
+                    <span style={{ position: 'absolute', right: '14px', top: '50%', transform: 'translateY(-50%)', fontSize: '14px', color: '#94a3b8', pointerEvents: 'none' }}><File size={16} /></span>
                   </div>
                 </div>
 
                 {/* Deadline */}
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                    <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#fff5f5', color: '#e11d48', fontSize: '13px' }}>📅</span>
+                    <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#fff5f5', color: '#e11d48', fontSize: '13px' }}><Calendar size={16} /></span>
                     <label className="shadcn-label" style={{ margin: 0, fontWeight: '700', fontSize: '13.5px' }}>Deadline</label>
                   </div>
                   <div style={{ position: 'relative' }}>
@@ -1403,14 +1404,14 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
                       className="shadcn-input"
                       style={{ paddingLeft: '14px', paddingRight: '40px', border: '1px solid #e4e4e7', borderRadius: '8px' }}
                     />
-                    <span style={{ position: 'absolute', right: '14px', top: '50%', transform: 'translateY(-50%)', fontSize: '14px', color: '#e11d48', pointerEvents: 'none' }}>📅</span>
+                    <span style={{ position: 'absolute', right: '14px', top: '50%', transform: 'translateY(-50%)', fontSize: '14px', color: '#e11d48', pointerEvents: 'none' }}><Calendar size={16} /></span>
                   </div>
                 </div>
 
                 {/* Specific Instructions */}
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                    <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#eff6ff', color: '#2563eb', fontSize: '13px' }}>ℹ️</span>
+                    <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#eff6ff', color: '#2563eb', fontSize: '13px' }}><Info size={16} /></span>
                     <label className="shadcn-label" style={{ margin: 0, fontWeight: '700', fontSize: '13.5px' }}>Specific Instructions</label>
                   </div>
                   <textarea 
@@ -1427,19 +1428,19 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '6px', background: '#fafafa', padding: '12px 6px', borderRadius: '12px', border: '1px solid #f3f3f3', marginTop: '4px' }}>
                   <div style={{ textAlign: 'center' }}>
                     <div style={{ fontSize: '10px', fontWeight: '800', color: '#09090b', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '3px' }}>
-                      <span style={{ color: '#3b82f6', fontSize: '11px' }}>🛡️</span> Secure
+                      <span style={{ color: '#3b82f6', fontSize: '11px' }}><ShieldCheck size={16} /></span> Secure
                     </div>
                     <span style={{ fontSize: '8px', color: '#71717a', fontWeight: '600', display: 'block', marginTop: '2px' }}>Your data is safe</span>
                   </div>
                   <div style={{ textAlign: 'center', borderLeft: '1px solid #e4e4e7' }}>
                     <div style={{ fontSize: '10px', fontWeight: '800', color: '#09090b', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '3px' }}>
-                      <span style={{ color: '#ea580c', fontSize: '11px' }}>⚡</span> Quick
+                      <span style={{ color: '#ea580c', fontSize: '11px' }}><Zap size={16} fill="currentColor" /></span> Quick
                     </div>
                     <span style={{ fontSize: '8px', color: '#71717a', fontWeight: '600', display: 'block', marginTop: '2px' }}>Replies fast</span>
                   </div>
                   <div style={{ textAlign: 'center', borderLeft: '1px solid #e4e4e7' }}>
                     <div style={{ fontSize: '10px', fontWeight: '800', color: '#09090b', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '3px' }}>
-                      <span style={{ color: '#8b5cf6', fontSize: '11px' }}>👤</span> Tutors
+                      <span style={{ color: '#8b5cf6', fontSize: '11px' }}><User size={16} /></span> Tutors
                     </div>
                     <span style={{ fontSize: '8px', color: '#71717a', fontWeight: '600', display: 'block', marginTop: '2px' }}>PhD experts</span>
                   </div>
@@ -1546,7 +1547,7 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
           <div className="grid-cols-3">
             {config.benefits.map((benefit, idx) => (
               <div key={idx} className="glass-card" style={{ background: '#ffffff' }}>
-                <span style={{ fontSize: '24px', display: 'block', marginBottom: '12px', color: 'var(--accent-purple)' }}>✓</span>
+                <span style={{ fontSize: '24px', display: 'block', marginBottom: '12px', color: 'var(--accent-purple)' }}><CheckCircle size={16} /></span>
                 <h3 style={{ fontSize: '16px', marginBottom: '8px', fontWeight: '800' }}>{benefit.title}</h3>
                 <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', margin: 0 }}>{benefit.desc}</p>
               </div>

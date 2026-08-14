@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Rocket, Sparkles, GraduationCap, Monitor, Star, ShieldCheck, Phone, Users, FileText, Clock, ClipboardList, BookOpen, Search, BarChart, Zap, CheckCircle, FlaskConical, PenTool, Book, File, Calendar, Info, User, MessageCircle, Lock, UserCheck, Globe } from 'lucide-react';
 
 const servicesList = [
   {
@@ -174,7 +175,7 @@ export default function ServicesCataloguePage({ setCurrentPage }) {
       <section style={{ padding: '80px 0 60px 0', background: 'radial-gradient(circle at 50% 10%, rgba(99, 102, 241, 0.06) 0%, transparent 70%)', borderBottom: '1px solid #e2e8f0' }}>
         <div className="container" style={{ maxWidth: '800px', textAlign: 'center' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'var(--primary-glow)', color: 'var(--primary)', padding: '6px 18px', borderRadius: '100px', fontWeight: '700', fontSize: '12px', marginBottom: '20px', textTransform: 'uppercase', letterSpacing: '1px' }}>
-            📚 SERVICE CATALOGUE
+            <BookOpen size={16} /> SERVICE CATALOGUE
           </div>
           <h1 style={{ fontSize: '46px', fontWeight: '900', color: 'var(--text-primary)', marginBottom: '16px', lineHeight: '1.15', fontFamily: 'var(--font-headings)' }}>
             A Grade Tutor <span className="gradient-text">At Your Service</span>
@@ -185,7 +186,7 @@ export default function ServicesCataloguePage({ setCurrentPage }) {
 
           {/* Premium Search input */}
           <div style={{ position: 'relative', width: '100%', maxWidth: '560px', margin: '0 auto' }}>
-            <span style={{ position: 'absolute', left: '20px', top: '50%', transform: 'translateY(-50%)', fontSize: '18px', color: 'var(--text-light)' }}>🔍</span>
+            <span style={{ position: 'absolute', left: '20px', top: '50%', transform: 'translateY(-50%)', fontSize: '18px', color: 'var(--text-light)' }}><Search size={16} /></span>
             <input 
               type="text" 
               placeholder="Search for assignment, essay, programming help..."
@@ -317,7 +318,7 @@ export default function ServicesCataloguePage({ setCurrentPage }) {
             })
           ) : (
             <div style={{ textAlign: 'center', padding: '60px 20px', background: '#ffffff', borderRadius: '16px', border: '1px solid #cbd5e1' }}>
-              <span style={{ fontSize: '40px', display: 'block', marginBottom: '16px' }}>🔍</span>
+              <span style={{ fontSize: '40px', display: 'block', marginBottom: '16px' }}><Search size={16} /></span>
               <h3 style={{ fontSize: '18px', fontWeight: '800', marginBottom: '8px' }}>No services found</h3>
               <p style={{ color: '#64748b', fontSize: '14px', margin: 0 }}>We couldn't find any services matching "{searchQuery}". Try searching for another topic or chat with us on WhatsApp.</p>
             </div>

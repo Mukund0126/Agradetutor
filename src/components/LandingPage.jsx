@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Rocket, Sparkles, GraduationCap, Monitor, Star, ShieldCheck, Phone, Users, FileText, Clock, ClipboardList, BookOpen, Search, BarChart, Zap, CheckCircle, FlaskConical, PenTool, Book, File, Calendar, Info, User, MessageCircle, Lock, UserCheck, Globe } from 'lucide-react';
 
 const renderSubjectIcon = (type, color) => {
   const baseStyle = {
@@ -119,7 +120,7 @@ const renderSubjectIcon = (type, color) => {
         </div>
       );
     default:
-      return <div style={baseStyle}>📚</div>;
+      return <div style={baseStyle}><BookOpen size={16} /></div>;
   }
 };
 
@@ -528,9 +529,9 @@ export default function LandingPage({ setCurrentPage }) {
       `📝 *Topic/Title:* ${formData.topic}\n` +
       `⏱ *Deadline:* ${formData.deadline}\n` +
       (formData.budget ? `💰 *Estimated Budget:* ₹${formData.budget}\n` : '') +
-      `🎓 *Target Grade:* ${formData.grade}\n` +
+      `<GraduationCap size={16} /> *Target Grade:* ${formData.grade}\n` +
       `📎 *Attached Files:* ${attachedFilesText}\n` +
-      `📋 *Instructions:* ${formData.instructions || 'None'}\n\n` +
+      `<ClipboardList size={16} /> *Instructions:* ${formData.instructions || 'None'}\n\n` +
       `Please connect me with a subject-matter expert for this task.`;
 
     const encodedMessage = encodeURIComponent(waMessage);
@@ -713,13 +714,13 @@ export default function LandingPage({ setCurrentPage }) {
 
             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginBottom: '28px' }}>
               <div style={{ background: '#faf5ff', border: '1px solid #d8b4fe', color: '#6b21a8', padding: '6px 16px', borderRadius: '100px', fontWeight: '750', fontSize: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                ⭐ 4.9/5 Student Rating
+                <Star size={16} fill="currentColor" /> 4.9/5 Student Rating
               </div>
               <div style={{ background: '#f0fdfa', border: '1px solid #99f6e4', color: '#115e59', padding: '6px 16px', borderRadius: '100px', fontWeight: '750', fontSize: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                👥 50K+ Happy Learners
+                <Users size={16} /> 50K+ Happy Learners
               </div>
               <div style={{ background: '#fff7ed', border: '1px solid #ffedd5', color: '#ea580c', padding: '6px 16px', borderRadius: '100px', fontWeight: '750', fontSize: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                ⚡ Instant Response Match
+                <Zap size={16} fill="currentColor" /> Instant Response Match
               </div>
             </div>
 
@@ -756,16 +757,16 @@ export default function LandingPage({ setCurrentPage }) {
 
             <div style={{ display: 'flex', gap: '24px', borderTop: '1px solid #e2e8f0', paddingTop: '28px', flexWrap: 'wrap' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', fontWeight: '750', color: '#64748b' }}>
-                <span style={{ fontSize: '16px', color: '#ea580c' }}>✓</span> 100% Plagiarism Free
+                <span style={{ fontSize: '16px', color: '#ea580c' }}><CheckCircle size={16} /></span> 100% Plagiarism Free
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', fontWeight: '750', color: '#64748b' }}>
-                <span style={{ fontSize: '16px', color: '#ea580c' }}>✓</span> Verified PhD Experts
+                <span style={{ fontSize: '16px', color: '#ea580c' }}><CheckCircle size={16} /></span> Verified PhD Experts
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', fontWeight: '750', color: '#64748b' }}>
-                <span style={{ fontSize: '16px', color: '#ea580c' }}>✓</span> 24/7 Instant Match
+                <span style={{ fontSize: '16px', color: '#ea580c' }}><CheckCircle size={16} /></span> 24/7 Instant Match
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', fontWeight: '750', color: '#64748b' }}>
-                <span style={{ fontSize: '16px', color: '#ea580c' }}>✓</span> No AI Generated Content
+                <span style={{ fontSize: '16px', color: '#ea580c' }}><CheckCircle size={16} /></span> No AI Generated Content
               </div>
             </div>
           </div>
@@ -786,7 +787,7 @@ export default function LandingPage({ setCurrentPage }) {
               
               {/* Top graduation cap pill badge */}
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#f5f3ff', border: '1px solid #ddd6fe', color: '#6d28d9', padding: '5px 14px', borderRadius: '100px', fontSize: '11px', fontWeight: '750', marginBottom: '16px' }}>
-                <span style={{ fontSize: '12px' }}>🎓</span> PhD Experts. Real Help. Fast.
+                <span style={{ fontSize: '12px' }}><GraduationCap size={16} /></span> PhD Experts. Real Help. Fast.
               </div>
 
               {/* Header Grid: Text and 3D books image */}
@@ -820,12 +821,12 @@ export default function LandingPage({ setCurrentPage }) {
                 {/* Select Subject */}
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                    <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#f5f3ff', color: '#6d28d9', fontSize: '13px' }}>📖</span>
+                    <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#f5f3ff', color: '#6d28d9', fontSize: '13px' }}><Book size={16} /></span>
                     <label className="shadcn-label" style={{ margin: 0, fontWeight: '700', fontSize: '13.5px' }}>Select Subject</label>
                   </div>
                   <div style={{ position: 'relative' }}>
                     <span style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '22px', height: '22px', borderRadius: '4px', background: '#f3e8ff', color: '#6d28d9', fontSize: '12px', fontWeight: '800', pointerEvents: 'none' }}>
-                      {formData.subject === 'Mathematics' ? '√x' : formData.subject === 'Computer Science' ? '💻' : formData.subject === 'Essay Writing' ? '✍️' : formData.subject === 'Physics' ? '🧪' : '📚'}
+                      {formData.subject === 'Mathematics' ? '√x' : formData.subject === 'Computer Science' ? '<Monitor size={16} />' : formData.subject === 'Essay Writing' ? '<PenTool size={16} />' : formData.subject === 'Physics' ? '<FlaskConical size={16} />' : '<BookOpen size={16} />'}
                     </span>
                     <select 
                       value={formData.subject}
@@ -854,7 +855,7 @@ export default function LandingPage({ setCurrentPage }) {
                 {/* Topic / Guidelines */}
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                    <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#ecfdf5', color: '#059669', fontSize: '13px' }}>📝</span>
+                    <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#ecfdf5', color: '#059669', fontSize: '13px' }}><FileText size={16} /></span>
                     <label className="shadcn-label" style={{ margin: 0, fontWeight: '700', fontSize: '13.5px' }}>Topic / Guidelines</label>
                   </div>
                   <div style={{ position: 'relative' }}>
@@ -867,14 +868,14 @@ export default function LandingPage({ setCurrentPage }) {
                       className="shadcn-input"
                       style={{ paddingLeft: '14px', paddingRight: '40px', border: '1px solid #e4e4e7', borderRadius: '8px' }}
                     />
-                    <span style={{ position: 'absolute', right: '14px', top: '50%', transform: 'translateY(-50%)', fontSize: '15px', color: '#10b981', pointerEvents: 'none' }}>📄</span>
+                    <span style={{ position: 'absolute', right: '14px', top: '50%', transform: 'translateY(-50%)', fontSize: '15px', color: '#10b981', pointerEvents: 'none' }}><File size={16} /></span>
                   </div>
                 </div>
 
                 {/* Deadline */}
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                    <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#fff5f5', color: '#e11d48', fontSize: '13px' }}>📅</span>
+                    <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#fff5f5', color: '#e11d48', fontSize: '13px' }}><Calendar size={16} /></span>
                     <label className="shadcn-label" style={{ margin: 0, fontWeight: '700', fontSize: '13.5px' }}>Deadline</label>
                   </div>
                   <div style={{ position: 'relative' }}>
@@ -886,14 +887,14 @@ export default function LandingPage({ setCurrentPage }) {
                       className="shadcn-input"
                       style={{ paddingLeft: '14px', paddingRight: '40px', border: '1px solid #e4e4e7', borderRadius: '8px' }}
                     />
-                    <span style={{ position: 'absolute', right: '14px', top: '50%', transform: 'translateY(-50%)', fontSize: '15px', color: '#e11d48', pointerEvents: 'none' }}>📅</span>
+                    <span style={{ position: 'absolute', right: '14px', top: '50%', transform: 'translateY(-50%)', fontSize: '15px', color: '#e11d48', pointerEvents: 'none' }}><Calendar size={16} /></span>
                   </div>
                 </div>
 
                 {/* Specific Instructions */}
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                    <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#eff6ff', color: '#2563eb', fontSize: '13px' }}>ℹ️</span>
+                    <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '6px', background: '#eff6ff', color: '#2563eb', fontSize: '13px' }}><Info size={16} /></span>
                     <label className="shadcn-label" style={{ margin: 0, fontWeight: '700', fontSize: '13.5px' }}>Specific Instructions</label>
                   </div>
                   <textarea 
@@ -910,19 +911,19 @@ export default function LandingPage({ setCurrentPage }) {
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', background: '#fafafa', padding: '12px', borderRadius: '12px', border: '1px solid #f3f3f3', marginTop: '4px' }}>
                   <div style={{ textAlign: 'center' }}>
                     <div style={{ fontSize: '11px', fontWeight: '800', color: '#09090b', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>
-                      <span style={{ color: '#6366f1' }}>🛡️</span> <span style={{ fontSize: '10px' }}>100% Secure</span>
+                      <span style={{ color: '#6366f1' }}><ShieldCheck size={16} /></span> <span style={{ fontSize: '10px' }}>100% Secure</span>
                     </div>
                     <span style={{ fontSize: '9px', color: '#71717a', fontWeight: '600', display: 'block', marginTop: '2px' }}>Your data is safe</span>
                   </div>
                   <div style={{ textAlign: 'center', borderLeft: '1px solid #e4e4e7', borderRight: '1px solid #e4e4e7' }}>
                     <div style={{ fontSize: '11px', fontWeight: '800', color: '#09090b', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>
-                      <span style={{ color: '#d946ef' }}>⚡</span> <span style={{ fontSize: '10px' }}>Quick Response</span>
+                      <span style={{ color: '#d946ef' }}><Zap size={16} fill="currentColor" /></span> <span style={{ fontSize: '10px' }}>Quick Response</span>
                     </div>
                     <span style={{ fontSize: '9px', color: '#71717a', fontWeight: '600', display: 'block', marginTop: '2px' }}>Replies in minutes</span>
                   </div>
                   <div style={{ textAlign: 'center' }}>
                     <div style={{ fontSize: '11px', fontWeight: '800', color: '#09090b', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>
-                      <span style={{ color: '#6366f1' }}>👤</span> <span style={{ fontSize: '10px' }}>Verified Tutors</span>
+                      <span style={{ color: '#6366f1' }}><User size={16} /></span> <span style={{ fontSize: '10px' }}>Verified Tutors</span>
                     </div>
                     <span style={{ fontSize: '9px', color: '#71717a', fontWeight: '600', display: 'block', marginTop: '2px' }}>PhD expert help</span>
                   </div>
@@ -1002,7 +1003,7 @@ export default function LandingPage({ setCurrentPage }) {
               textTransform: 'uppercase',
               animation: 'premium-gradient-shift 4s ease infinite, float-badge 3s ease-in-out infinite'
             }}>
-              <span style={{ fontSize: '26px' }}>📚</span> Our Services
+              <span style={{ fontSize: '26px' }}><BookOpen size={16} /></span> Our Services
             </div>
           </div>
 
@@ -1038,7 +1039,7 @@ export default function LandingPage({ setCurrentPage }) {
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '50px' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#ffedd5', border: '1px solid #fed7aa', color: '#ea580c', padding: '6px 16px', borderRadius: 'var(--radius-full)', fontWeight: '600', fontSize: '13px', marginBottom: '16px' }}>
-              🎓 EXPERT TUTORS
+              <GraduationCap size={16} /> EXPERT TUTORS
             </div>
             <h2 style={{ fontSize: '38px', fontWeight: '800', marginBottom: '12px' }}>Assignment & Homework Help for Every Subject</h2>
             <p style={{ color: 'var(--text-secondary)', fontSize: '16.5px' }}>Expert tutors across 100+ subjects ready to help you succeed</p>
@@ -1150,7 +1151,7 @@ export default function LandingPage({ setCurrentPage }) {
       <section id="why-trust-us" style={{ padding: '80px 0', backgroundColor: '#ffffff', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }}>
         <div className="container" style={{ textAlign: 'center', marginBottom: '50px' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#d1fae5', color: '#065f46', padding: '6px 16px', borderRadius: 'var(--radius-full)', fontWeight: '600', fontSize: '13px', marginBottom: '16px' }}>
-            ✓ Trusted by 2M+ Students
+            <CheckCircle size={16} /> Trusted by 2M+ Students
           </div>
           <h2 style={{ fontSize: '38px', fontWeight: '800', color: 'var(--primary)', marginBottom: '8px' }}>
             Why Students Trust A Grade Tutor
@@ -1349,7 +1350,7 @@ export default function LandingPage({ setCurrentPage }) {
                   zIndex: 3
                 }}
               >
-                <span style={{ fontSize: '24px' }}>👨‍🎓</span>
+                <span style={{ fontSize: '24px' }}>👨‍<GraduationCap size={16} /></span>
               </div>
             </div>
           </div>
@@ -1375,7 +1376,7 @@ export default function LandingPage({ setCurrentPage }) {
               {/* Left Column: Promotion */}
               <div style={{ textAlign: 'left' }}>
                 <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#e8f5e9', border: '1px solid #c8e6c9', color: '#2e7d32', padding: '6px 16px', borderRadius: '100px', fontWeight: '700', fontSize: '12px', marginBottom: '24px', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                  💬 WHATSAPP SUPPORT
+                  <MessageCircle size={16} /> WHATSAPP SUPPORT
                 </div>
                 <h2 style={{ fontSize: '42px', fontWeight: '800', lineHeight: '1.15', color: '#1e293b', marginBottom: '20px' }}>
                   Get Instant Online Homework Help <br />
@@ -1419,7 +1420,7 @@ export default function LandingPage({ setCurrentPage }) {
                   </div>
                   <div>
                     <div style={{ color: '#f97316', fontSize: '16px', fontWeight: 'bold', display: 'flex', gap: '2px', marginBottom: '2px' }}>
-                      ★★★★★
+                      <Star size={16} fill="currentColor" /><Star size={16} fill="currentColor" /><Star size={16} fill="currentColor" /><Star size={16} fill="currentColor" /><Star size={16} fill="currentColor" />
                     </div>
                     <p style={{ fontSize: '13px', color: '#475569', margin: 0, fontWeight: '600' }}>
                       <strong>2M+ students</strong> trust A Grade Tutor
@@ -1538,22 +1539,22 @@ export default function LandingPage({ setCurrentPage }) {
                   onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#fff7ed'; }}
                   onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#ffffff'; }}
                 >
-                  📄 Get Homework Help →
+                  <File size={16} /> Get Homework Help →
                 </button>
 
                 {/* 2x2 Feature Grid */}
                 <div className="whatsapp-features-grid">
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', fontWeight: '600', color: '#475569' }}>
-                    <span style={{ color: '#f97316' }}>⚡</span> Instant reply
+                    <span style={{ color: '#f97316' }}><Zap size={16} fill="currentColor" /></span> Instant reply
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', fontWeight: '600', color: '#475569' }}>
-                    <span style={{ color: '#f97316' }}>🔒</span> 100% private
+                    <span style={{ color: '#f97316' }}><Lock size={16} /></span> 100% private
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', fontWeight: '600', color: '#475569' }}>
-                    <span style={{ color: '#f97316' }}>🧑‍🏫</span> Top tutors
+                    <span style={{ color: '#f97316' }}><UserCheck size={16} /></span> Top tutors
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', fontWeight: '600', color: '#475569' }}>
-                    <span style={{ color: '#f97316' }}>🌐</span> All subjects
+                    <span style={{ color: '#f97316' }}><Globe size={16} /></span> All subjects
                   </div>
                 </div>
 
@@ -1726,7 +1727,7 @@ export default function LandingPage({ setCurrentPage }) {
         <div className="container grid-cols-2" style={{ alignItems: 'center', gap: '48px' }}>
           <div>
             <div className="badge-tutor" style={{ display: 'inline-flex', alignItems: 'center', background: 'var(--primary-glow)', color: 'var(--primary)', padding: '6px 16px', borderRadius: 'var(--radius-full)', fontWeight: '600', fontSize: '13px', marginBottom: '20px' }}>
-              🎓 Share Your Knowledge & Earn
+              <GraduationCap size={16} /> Share Your Knowledge & Earn
             </div>
             <h2 style={{ fontSize: '36px', marginBottom: '20px', lineHeight: '1.2', color: 'var(--primary)' }}>
               Become an Expert Tutor on <br />
@@ -1780,7 +1781,7 @@ export default function LandingPage({ setCurrentPage }) {
                   <span style={{ fontSize: '18px' }}>📈</span> <span><strong>Consistent Homework Stream:</strong> Get access to hundreds of daily tasks in math, physics, engineering, and coding.</span>
                 </li>
                 <li style={{ fontSize: '13.5px', color: 'var(--text-secondary)', display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                  <span style={{ fontSize: '18px' }}>💬</span> <span><strong>Dedicated Coordinator Support:</strong> 24/7 coordinator assistance to answer queries and manage handovers.</span>
+                  <span style={{ fontSize: '18px' }}><MessageCircle size={16} /></span> <span><strong>Dedicated Coordinator Support:</strong> 24/7 coordinator assistance to answer queries and manage handovers.</span>
                 </li>
               </ul>
             </div>
