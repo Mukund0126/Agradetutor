@@ -7,6 +7,7 @@ import ServicesCataloguePage from './components/ServicesCataloguePage';
 import LegalPage from './components/LegalPage';
 import RefundPage from './components/RefundPage';
 import TermsPage from './components/TermsPage';
+import Breadcrumbs from './components/Breadcrumbs';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home'); // 'home', 'services', or 'service-<slug>'
@@ -34,6 +35,9 @@ function App() {
     <div className="app-wrapper">
       {/* Sticky Header */}
       <Header setCurrentPage={setCurrentPage} />
+
+      {/* Breadcrumbs Navigation */}
+      <Breadcrumbs currentPage={currentPage} setCurrentPage={setCurrentPage} />
 
       {/* Main Layout Body */}
       <main key={currentPage} className="page-transition-wrapper">
