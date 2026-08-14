@@ -4,6 +4,9 @@ import Footer from './components/Footer';
 import LandingPage from './components/LandingPage';
 import ServicePage from './components/ServicePage';
 import ServicesCataloguePage from './components/ServicesCataloguePage';
+import LegalPage from './components/LegalPage';
+import RefundPage from './components/RefundPage';
+import TermsPage from './components/TermsPage';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home'); // 'home', 'services', or 'service-<slug>'
@@ -14,6 +17,12 @@ function App() {
       return <LandingPage setCurrentPage={setCurrentPage} />;
     } else if (currentPage === 'services') {
       return <ServicesCataloguePage setCurrentPage={setCurrentPage} />;
+    } else if (currentPage === 'privacy') {
+      return <LegalPage />;
+    } else if (currentPage === 'refund') {
+      return <RefundPage />;
+    } else if (currentPage === 'terms') {
+      return <TermsPage />;
     } else if (currentPage.startsWith('service-')) {
       const serviceKey = currentPage.replace('service-', '');
       return <ServicePage serviceKey={serviceKey} setCurrentPage={setCurrentPage} />;

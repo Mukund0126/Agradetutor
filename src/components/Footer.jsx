@@ -30,7 +30,18 @@ export default function Footer({ setCurrentPage }) {
   };
 
   const handlePolicyClick = (policyTitle) => {
-    alert(`${policyTitle} popup simulator:\n\nThis page is not initialized yet. All parameters are fully governed by A Grade Tutor coordinators on WhatsApp.`);
+    if (policyTitle === 'Privacy Policy') {
+      setCurrentPage('privacy');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (policyTitle === 'Refund Policy') {
+      setCurrentPage('refund');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (policyTitle === 'Terms & Conditions') {
+      setCurrentPage('terms');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      alert(`${policyTitle} popup simulator:\n\nThis page is not initialized yet. All parameters are fully governed by A Grade Tutor coordinators on WhatsApp.`);
+    }
   };
 
   const servicesLinks = [
@@ -90,6 +101,16 @@ export default function Footer({ setCurrentPage }) {
                 style={{ fontWeight: '800', fontSize: '17px', color: '#fbbf24', textDecoration: 'none' }}
               >
                 +91 9429379139
+              </a>
+            </div>
+
+            <div>
+              <p style={{ fontSize: '11px', color: '#cbd5e1', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '4px', fontWeight: '700' }}>Email Us:</p>
+              <a 
+                href="mailto:agradetutoreducation@gmail.com" 
+                style={{ fontWeight: '800', fontSize: '14.5px', color: '#fbbf24', textDecoration: 'none' }}
+              >
+                agradetutoreducation@gmail.com
               </a>
             </div>
 
@@ -175,14 +196,15 @@ export default function Footer({ setCurrentPage }) {
 
         </div>
 
-        {/* Bottom Banner Card: Coordinator WhatsApp Hotline */}
+        {/* Bottom Banner Card: Coordinator WhatsApp Hotline & Email */}
         <div style={{ background: '#375d8a', borderRadius: '16px', padding: '24px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '32px', border: '1px solid rgba(255,255,255,0.1)' }}>
           <h5 style={{ color: '#ffffff', fontSize: '16px', fontWeight: '800', margin: 0, fontFamily: 'var(--font-headings)' }}>
             Connect Instantly with an Academic Coordinator
           </h5>
-          <p style={{ color: '#cbd5e1', fontSize: '13px', margin: 0, fontFamily: 'var(--font-body)', fontWeight: '500' }}>
-            Get 24/7 direct access and live assignment updates directly on WhatsApp: <a href="https://wa.me/919429379139" target="_blank" rel="noopener noreferrer" style={{ color: '#fbbf24', fontWeight: '800', textDecoration: 'underline' }}>+91 9429379139</a>
-          </p>
+          <div style={{ color: '#cbd5e1', fontSize: '13px', margin: 0, fontFamily: 'var(--font-body)', fontWeight: '500', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', textAlign: 'center' }}>
+            <span>Get 24/7 direct access and live assignment updates directly on WhatsApp: <a href="https://wa.me/919429379139" target="_blank" rel="noopener noreferrer" style={{ color: '#fbbf24', fontWeight: '800', textDecoration: 'underline' }}>+91 9429379139</a></span>
+            <span>Or email us at: <a href="mailto:agradetutoreducation@gmail.com" style={{ color: '#fbbf24', fontWeight: '800', textDecoration: 'underline' }}>agradetutoreducation@gmail.com</a></span>
+          </div>
         </div>
 
         {/* Brand Copyright */}

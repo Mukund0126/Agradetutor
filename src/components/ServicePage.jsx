@@ -61,12 +61,13 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
     budget: '',
     grade: 'A+ Grade',
     instructions: '',
+    customSubject: '',
   });
 
   const subjectsList = [
     'Mathematics', 'Physics', 'Chemistry', 'Computer Science', 'Mechanical Engineering',
     'Electrical Engineering', 'Civil Engineering', 'Chemical Engineering', 'Biology',
-    'Economics', 'Finance & Accounting', 'Business Statistics', 'Essay Writing', 'English Literature'
+    'Economics', 'Finance & Accounting', 'Business Statistics', 'Essay Writing', 'English Literature', 'Other'
   ];
 
   const handleTextMeNow = (e) => {
@@ -141,7 +142,7 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
 
     const waMessage = `*New ${config.title} Request (A Grade Tutor)*\n\n` +
       `📌 *Order Ref:* ${refId}\n` +
-      `📚 *Subject:* ${formData.subject}\n` +
+      `📚 *Subject:* ${formData.subject === 'Other' ? formData.customSubject || 'Other' : formData.subject}\n` +
       `📝 *Topic/Title:* ${formData.topic}\n` +
       `⏱ *Deadline:* ${formData.deadline}\n` +
       `🎓 *Target Grade:* ${formData.grade}\n` +
@@ -163,6 +164,7 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
         budget: '',
         grade: 'A+ Grade',
         instructions: '',
+        customSubject: '',
       });
       window.location.href = waUrl;
     }, 800);
@@ -400,6 +402,19 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
                           {subjectsList.map((sub, idx) => <option key={idx} value={sub}>{sub}</option>)}
                         </select>
                       </div>
+                      {formData.subject === 'Other' && (
+                        <div style={{ marginTop: '12px', position: 'relative' }}>
+                          <input 
+                            type="text" 
+                            placeholder="Please specify your subject"
+                            value={formData.customSubject}
+                            onChange={(e) => setFormData({...formData, customSubject: e.target.value})}
+                            required
+                            className="shadcn-input"
+                            style={{ paddingLeft: '14px', border: '1px solid #e4e4e7', borderRadius: '8px' }}
+                          />
+                        </div>
+                      )}
                     </div>
 
                     {/* Topic / Guidelines */}
@@ -512,10 +527,6 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
                       <span style={{ width: '22px', height: '22px', borderRadius: '50%', background: '#ffffff', color: '#22c55e', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', fontWeight: '900', flexShrink: 0 }}>→</span>
                     </button>
 
-                    {/* Spam disclaimer footer */}
-                    <div style={{ fontSize: '11px', color: '#64748b', fontWeight: '600', marginTop: '6px', textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>
-                      🔒 No Spam • No Calls • Only WhatsApp
-                    </div>
 
                   </form>
                 </div>
@@ -1342,6 +1353,19 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
                       {subjectsList.map((sub, idx) => <option key={idx} value={sub}>{sub}</option>)}
                     </select>
                   </div>
+                  {formData.subject === 'Other' && (
+                    <div style={{ marginTop: '12px', position: 'relative' }}>
+                      <input 
+                        type="text" 
+                        placeholder="Please specify your subject"
+                        value={formData.customSubject}
+                        onChange={(e) => setFormData({...formData, customSubject: e.target.value})}
+                        required
+                        className="shadcn-input"
+                        style={{ paddingLeft: '14px', border: '1px solid #e4e4e7', borderRadius: '8px' }}
+                      />
+                    </div>
+                  )}
                 </div>
 
                 {/* Topic / Guidelines */}
@@ -1454,10 +1478,6 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
                   <span style={{ width: '22px', height: '22px', borderRadius: '50%', background: '#ffffff', color: '#22c55e', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', fontWeight: '900', flexShrink: 0 }}>→</span>
                 </button>
 
-                {/* Spam disclaimer footer */}
-                <div style={{ fontSize: '11px', color: '#64748b', fontWeight: '600', marginTop: '6px', textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>
-                  🔒 No Spam • No Calls • Only WhatsApp
-                </div>
 
               </form>
             </div>

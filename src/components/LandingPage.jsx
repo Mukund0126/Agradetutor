@@ -272,6 +272,7 @@ export default function LandingPage({ setCurrentPage }) {
     budget: '',
     grade: 'A+ Grade',
     instructions: '',
+    customSubject: '',
   });
 
   const handleFileChange = (e) => {
@@ -283,7 +284,7 @@ export default function LandingPage({ setCurrentPage }) {
   const subjectsList = [
     'Mathematics', 'Physics', 'Chemistry', 'Computer Science', 'Mechanical Engineering',
     'Electrical Engineering', 'Civil Engineering', 'Chemical Engineering', 'Biology',
-    'Economics', 'Finance & Accounting', 'Business Statistics', 'Essay Writing', 'English Literature'
+    'Economics', 'Finance & Accounting', 'Business Statistics', 'Essay Writing', 'English Literature', 'Other'
   ];
 
   const stats = [
@@ -441,7 +442,8 @@ export default function LandingPage({ setCurrentPage }) {
     { name: 'Economics', suffix: 'Assignment Help', icon: 'trending', color: '#ea580c' },
     { name: 'Physics', suffix: 'Assignment Help', icon: 'atom', color: '#0ea5e9' },
     { name: 'Finance', suffix: 'Assignment Help', icon: 'book', color: '#ef4444' },
-    { name: 'Coding', suffix: 'Assignment Help', icon: 'code', color: '#2563eb' }
+    { name: 'Coding', suffix: 'Assignment Help', icon: 'code', color: '#2563eb' },
+    { name: 'Software', suffix: 'Assignment Help', icon: 'code', color: '#8b5cf6' }
   ];
 
   const faqData = [
@@ -522,7 +524,7 @@ export default function LandingPage({ setCurrentPage }) {
 
     const waMessage = `*New Homework Inquiry (A Grade Tutor)*\n\n` +
       `📌 *Order Ref:* ${newId}\n` +
-      `📚 *Subject:* ${formData.subject}\n` +
+      `📚 *Subject:* ${formData.subject === 'Other' ? formData.customSubject || 'Other' : formData.subject}\n` +
       `📝 *Topic/Title:* ${formData.topic}\n` +
       `⏱ *Deadline:* ${formData.deadline}\n` +
       (formData.budget ? `💰 *Estimated Budget:* ₹${formData.budget}\n` : '') +
@@ -545,6 +547,7 @@ export default function LandingPage({ setCurrentPage }) {
         budget: '',
         grade: 'A+ Grade',
         instructions: '',
+        customSubject: '',
       });
       window.location.href = waUrl;
     }, 800);
@@ -562,6 +565,16 @@ export default function LandingPage({ setCurrentPage }) {
           0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
           70% { transform: scale(1.1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
           100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+        @keyframes premium-gradient-shift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        @keyframes float-badge {
+          0% { transform: translateY(0px); box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.4); }
+          50% { transform: translateY(-6px); box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.6); }
+          100% { transform: translateY(0px); box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.4); }
         }
         .shadcn-card {
           width: 100%;
@@ -751,6 +764,9 @@ export default function LandingPage({ setCurrentPage }) {
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', fontWeight: '750', color: '#64748b' }}>
                 <span style={{ fontSize: '16px', color: '#ea580c' }}>✓</span> 24/7 Instant Match
               </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', fontWeight: '750', color: '#64748b' }}>
+                <span style={{ fontSize: '16px', color: '#ea580c' }}>✓</span> No AI Generated Content
+              </div>
             </div>
           </div>
 
@@ -820,6 +836,19 @@ export default function LandingPage({ setCurrentPage }) {
                       {subjectsList.map((sub, idx) => <option key={idx} value={sub}>{sub}</option>)}
                     </select>
                   </div>
+                  {formData.subject === 'Other' && (
+                    <div style={{ marginTop: '12px', position: 'relative' }}>
+                      <input 
+                        type="text" 
+                        placeholder="Please specify your subject"
+                        value={formData.customSubject}
+                        onChange={(e) => setFormData({...formData, customSubject: e.target.value})}
+                        required
+                        className="shadcn-input"
+                        style={{ paddingLeft: '14px', border: '1px solid #e4e4e7', borderRadius: '8px' }}
+                      />
+                    </div>
+                  )}
                 </div>
 
                 {/* Topic / Guidelines */}
@@ -931,10 +960,6 @@ export default function LandingPage({ setCurrentPage }) {
                   <span style={{ width: '22px', height: '22px', borderRadius: '50%', background: '#ffffff', color: '#16a34a', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', fontWeight: '900', flexShrink: 0 }}>→</span>
                 </button>
 
-                {/* Anti-spam footer */}
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px', fontSize: '11px', color: '#71717a', fontWeight: '600', marginTop: '-4px' }}>
-                  <span>🔒</span> No Spam • No Calls • Only WhatsApp
-                </div>
 
               </form>
             </div>
@@ -961,14 +986,24 @@ export default function LandingPage({ setCurrentPage }) {
       {/* Services Grid Section - Displays all 12 services structured cleanly */}
       <section id="services" style={{ padding: '80px 0', backgroundColor: '#ffffff' }}>
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'var(--primary-glow)', color: 'var(--primary)', padding: '6px 16px', borderRadius: 'var(--radius-full)', fontWeight: '600', fontSize: '13px', marginBottom: '16px' }}>
-              📚 Our Services
+          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+            <div style={{ 
+              display: 'inline-flex', 
+              alignItems: 'center', 
+              gap: '12px', 
+              background: 'linear-gradient(270deg, #6366f1, #d946ef, #6366f1)',
+              backgroundSize: '200% 200%',
+              color: '#ffffff', 
+              padding: '16px 36px', 
+              borderRadius: '100px', 
+              fontWeight: '800', 
+              fontSize: '22px', 
+              letterSpacing: '1px',
+              textTransform: 'uppercase',
+              animation: 'premium-gradient-shift 4s ease infinite, float-badge 3s ease-in-out infinite'
+            }}>
+              <span style={{ fontSize: '26px' }}>📚</span> Our Services
             </div>
-            <h2 style={{ fontSize: '38px', fontWeight: '800', marginBottom: '12px' }}>Writing Help</h2>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '16.5px', maxWidth: '600px', margin: '0 auto' }}>
-              Comprehensive academic support tailored to your needs
-            </p>
           </div>
 
           <div className="grid-cols-3">
@@ -1060,36 +1095,7 @@ export default function LandingPage({ setCurrentPage }) {
             })}
           </div>
 
-          <div style={{ textAlign: 'center' }}>
-            <button 
-              onClick={() => handleScrollToSection('get-quote')}
-              className="btn"
-              style={{ 
-                background: '#ffffff', 
-                color: 'var(--text-primary)', 
-                border: '1px solid var(--border-color)', 
-                fontSize: '14px', 
-                fontWeight: '700',
-                padding: '12px 28px',
-                borderRadius: '8px',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                transition: 'var(--transition)',
-                boxShadow: 'var(--shadow-sm)'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = '#f97316';
-                e.currentTarget.style.color = '#f97316';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'var(--border-color)';
-                e.currentTarget.style.color = 'var(--text-primary)';
-              }}
-            >
-              View All Subjects <span style={{ transition: 'transform 0.2s' }}>→</span>
-            </button>
-          </div>
+
         </div>
       </section>
 
@@ -1612,7 +1618,7 @@ export default function LandingPage({ setCurrentPage }) {
       </section>
 
       {/* Testimonials */}
-      <section style={{ padding: '80px 0', backgroundColor: '#ffffff' }}>
+      <section id="testimonials" style={{ padding: '80px 0', backgroundColor: '#ffffff' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '50px' }}>
             <h2 style={{ fontSize: '36px', marginBottom: '16px' }}>Student Success Stories</h2>
@@ -1655,12 +1661,13 @@ export default function LandingPage({ setCurrentPage }) {
         </div>
 
         <div className="container" style={{ marginBottom: '40px' }}>
-          <div className="grid-cols-4">
+          <div className="grid-cols-5">
             {[
-              { name: 'Duke University', image: '/duke_campus.jpg' },
-              { name: 'Central Michigan University', image: '/cmu_campus.jpg' },
-              { name: 'Victoria University', image: '/victoria_campus.jpg' },
-              { name: 'Northern Illinois University', image: '/niu_campus.jpg' }
+              { name: 'Australian National University', image: '/anu_campus.png' },
+              { name: 'Murdoch University', image: '/murdoch_campus.png' },
+              { name: 'University of Toronto', image: '/toronto_campus.png' },
+              { name: 'McMaster University', image: '/mcmaster_campus.png' },
+              { name: 'University of Victoria', image: '/uvic_campus.png' }
             ].map((uni, idx) => (
               <div 
                 key={idx} 
