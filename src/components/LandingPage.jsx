@@ -826,7 +826,7 @@ export default function LandingPage({ setCurrentPage }) {
                   </div>
                   <div style={{ position: 'relative' }}>
                     <span style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '22px', height: '22px', borderRadius: '4px', background: '#f3e8ff', color: '#6d28d9', fontSize: '12px', fontWeight: '800', pointerEvents: 'none' }}>
-                      {formData.subject === 'Mathematics' ? '√x' : formData.subject === 'Computer Science' ? '<Monitor size={16} />' : formData.subject === 'Essay Writing' ? '<PenTool size={16} />' : formData.subject === 'Physics' ? '<FlaskConical size={16} />' : '<BookOpen size={16} />'}
+                      {formData.subject === 'Mathematics' ? '√x' : formData.subject === 'Computer Science' ? <Monitor size={16} /> : formData.subject === 'Essay Writing' ? <PenTool size={16} /> : formData.subject === 'Physics' ? <FlaskConical size={16} /> : <BookOpen size={16} />}
                     </span>
                     <select 
                       value={formData.subject}

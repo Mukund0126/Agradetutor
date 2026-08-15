@@ -608,7 +608,7 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
                 ].map((s, idx) => (
                   <div key={idx} style={{ display: 'flex', gap: '20px', alignItems: 'flex-start', position: 'relative', zIndex: 2 }}>
                     <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: '#ea580c', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '800', fontSize: '16px', flexShrink: 0, boxShadow: '0 4px 10px rgba(234,88,12,0.2)' }}>
-                      {s.step === 1 ? '📤' : s.step === 2 ? '<User size={16} />' : s.step === 3 ? '💳' : '<File size={16} />'}
+                      {s.step === 1 ? '📤' : s.step === 2 ? <User size={16} /> : s.step === 3 ? '💳' : <File size={16} />}
                     </div>
                     <div>
                       <h4 style={{ fontSize: '16.5px', fontWeight: '850', color: '#0f172a', margin: '0 0 6px 0' }}>{s.title}</h4>
@@ -725,11 +725,11 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
               {/* 3x2 grid */}
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', marginTop: '16px' }} className="freebies-grid">
                 {[
-                  { label: 'Plagiarism report', icon: '<File size={16} />' },
+                  { label: 'Plagiarism report', icon: <File size={16} /> },
                   { label: 'Revisions until satisfied', icon: '🔁' },
                   { label: 'APA / MLA formatting', icon: '📐' },
-                  { label: 'Title & reference page', icon: '<Book size={16} />' },
-                  { label: '24/7 customer support', icon: '<MessageCircle size={16} />' },
+                  { label: 'Title & reference page', icon: <Book size={16} /> },
+                  { label: '24/7 customer support', icon: <MessageCircle size={16} /> },
                   { label: 'Expert consultation', icon: '🎓' }
                 ].map((item, idx) => (
                   <div key={idx} style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '16px 20px', display: 'flex', alignItems: 'center', gap: '12px', boxShadow: '0 2px 8px rgba(0,0,0,0.01)' }}>
@@ -846,19 +846,19 @@ export default function ServicePage({ serviceKey, setCurrentPage }) {
                     {
                       num: 2,
                       title: 'Time Constraints',
-                      avatar: '<Clock size={16} />',
+                      avatar: <Clock size={16} />,
                       bullets: ['Quick turnover time', '24/7 expert guidance', 'On-time submission']
                     },
                     {
                       num: 3,
                       title: 'Uniqueness',
-                      avatar: '<ShieldCheck size={16} />',
+                      avatar: <ShieldCheck size={16} />,
                       bullets: ['Non plagiarized task', 'Personalized solutions', 'Multiple modifications']
                     },
                     {
                       num: 4,
                       title: 'Learning Scope',
-                      avatar: '<BookOpen size={16} />',
+                      avatar: <BookOpen size={16} />,
                       bullets: ['Thorough subject understanding', 'Cover knowledge gaps', 'Increased knowledge retention']
                     }
                   ].map((a, idx) => (
